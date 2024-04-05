@@ -1,0 +1,356 @@
+/*
+student id:47878657
+name: Noah Castro
+COMP2110 Web Dev project part 1
+*/
+
+/* 
+make margin and padding 0 initially so that we can style each
+component easier indvidually. + add site wide font and font color.
+*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(205, 205, 205);
+}
+
+/* 
+make the body containing all of the main containers display flex, content space around such that elements have even spacing around them,
+and make flex-wrap:wrap, such that the elements can wrap down the page when the view port is shrunk width wise. Additionally make position fixed
+at the top of the page such that the user has access to it even when at the very bottom at the page. expand top margin such that content is not covered.
+*/
+body{
+    margin-top: 10em;
+    /* used cssgradient.io to create custom gradient background */
+    background: linear-gradient(90deg, rgba(24,20,89,1) 0%, rgba(33,60,200,1) 31%, rgba(122,110,232,1) 100%);
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/*
+target buttons and inputs on the web page, styling them with a round black background with some padding such that the borders have some
+margin bewteen itself and the content of the button / input.
+*/
+button, input{
+    background-color: black;
+    border:none;
+    border-radius: 15px;
+    padding:0.5em;
+}
+
+/* 
+highlight buttons when hovered over for the user
+*/
+button:hover {
+    background-color: rgb(20, 20, 20);
+}
+
+/*
+header background color is a transparent black, so that the gradient background of the body can still be seen behind it.
+*/
+header{
+    position:fixed;
+    top:0;
+    padding:1.5em;
+    background-color: rgba(17, 16, 32, 0.974);
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width:100%;
+    margin-bottom: 1em;
+}
+
+/*
+target all of the direct children of header and modify their margin for appearance.
+*/
+header > * {
+    margin-inline: 1em;
+    margin-block: 0.5em;
+}
+
+/*
+remove default text decoration from links and make them bold.
+*/
+header a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*
+make the nav container inside header display flex and align their children in the center.
+fix width larger than that of the enlargening effect of link hovering such that other
+elements inside the header are not shifted around when hovering over.
+*/
+header nav{
+    width:300px;
+    min-height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+make the ul inside of nav in header display flex.
+*/
+header nav ul {
+    display:flex;
+}
+
+/*
+make the li nested inside of header have margins and have a 150ms transition for hovering.
+*/
+header nav ul li {
+    margin-left: 1em;
+    margin-right: 1em;
+    transition: 150ms ease-in-out;
+}
+
+/*
+make the header link markers transparent 
+*/
+header nav ul li::marker{
+    color:transparent;
+}
+
+/*
+when the li inside of header is hovered over by the cursor, increase its size, underline it and make it white.
+*/
+header nav ul li:hover{
+    font-size: 110%;
+    text-decoration: underline;
+    color:white;
+}
+
+/*
+make the search child inside of header display flex and align its item center.
+*/
+header search {
+    display:flex;
+    align-items: center;
+}
+
+/*
+target the place holder within the search input field (the actual text that appears inside) white instead of default.
+*/
+#tasksearch::placeholder{
+    color:white;
+}
+
+/*
+make the user display flex;
+*/
+#user {
+    display:flex;
+}
+
+/*
+target p within user and make it flex and make it display its content centered with space around for appearance.
+*/
+#user p{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*
+style the username span tag adjust margin and font weight for appearance.
+*/
+#username {
+    margin-left:0.5em;
+    font-weight: bold;
+}
+
+/*
+adjust logout button margin for appearance.
+*/
+#logout {
+    margin-left: 1em;
+}
+
+/*
+make task manager, which holds all of the task boards be a percentage of the entire body, make the display grid and define a repeating
+grid template column. 'auto-fit' defines that the layout will fit as many columns as possible with the space avaliable, according to the
+size specified via the second argument. 'minmax()' specifies a minimum and maximum size that the columns can be given by the first and 
+second arguments respectively, for this instance when the viewport width is increased such that an additional column can exist with all
+being the specified minimum width (360px) a new column will be created if there are elements that can be displayed. However if additional
+columns are needed, the existing columns can stretch evenly being even fractions (1fr) of the container.
+*/
+#task-manager {
+    max-width: 66%;
+    display: grid;
+    gap:0.5em;
+    grid-template-columns: repeat(auto-fit,minmax(360px,1fr));
+}
+
+/* 
+use media query to remove the task manager max width to absolve issues regarding the task boards and widgets not being alligned at low
+view port widths, in which things can be only displayed in a single column. plus change top body margin to prevent content from being
+blocked when the header is expanded down at low viewport widths.
+*/
+@media screen and (max-width:866px){
+    #task-manager{
+        max-width: none;
+    }
+    body{
+        margin-top: 15em;
+    }
+}
+
+/*
+alter the h2 styling inside the task manager which lie within the task boards to be bigger,+ alter margins such that they are in line with the content.
+*/
+#task-manager h2 {
+    margin-left: 0.4em;
+    font-weight: 700;
+    margin-bottom: 1em;;
+}
+
+/*
+give the task board rounded edges, with its own solid blue background color, alter padding such that there is space bewteen the borders and the content
+and between itself and other task boards.
+*/
+.task-board {
+    margin:1em;
+    background-color: rgb(16, 23, 74);
+    border-radius: 30px;
+    padding:1em;
+    padding-top: 2em;
+    height: fit-content;
+    transition:150ms;
+}
+
+/*
+when a task board is hovered over by the cursor change its background colour to a lighter colour.
+*/
+.task-board:hover{
+    background-color: rgb(24, 32, 100);
+    color:white;
+}
+
+/*
+ style task cards similar to task boards: rounded borders and solid background of dark blue.
+ Make it display flex with a column direction for its content to flow downwards, define a transition
+ for hovering.
+*/
+.task-card {
+    margin:0.2em;
+    margin-top:1em;
+    padding:0.5em;
+    border-radius: 20px;
+    background-color:rgb(6, 12, 52);
+    display: flex;
+    flex-direction: column;
+    transition: 150ms;
+}
+
+/*
+add padding to the following for appearance.
+*/
+.task-card p,h3,.task-controls {
+    padding:0.4em;
+}
+
+/*
+when the task card is hovered over by the cursor add a box shadow and brighten the background colour to highlight it for the user.
+*/
+.task-card:hover {
+    box-shadow: 0px 0px 10px 1px white;
+    background-color: rgb(12, 22, 83);
+}
+
+/*
+style all direct div elements under the widget container. make their appearance similar to that of task boards
+*/
+#widgets > div {
+    background-color: rgb(16, 23, 74);
+    width: 300px;
+    height:max-content;
+    padding:1em;
+    margin:1em;
+    border-radius:30px;
+    transition: 150ms;
+}
+
+/* 
+when hovered over, the widget background colour is brightened similar to task boards.
+*/
+#widgets > div:hover {
+    background-color: rgb(24, 32, 100);
+}
+
+/*
+define a bolder weight for widget headings
+*/
+#widgets h3 {
+    font-weight: 700;
+}
+
+
+/*
+this mainly targets task statistics directly making a grid column with 2 rows,
+such that the list and fields actually look correct. also styling such that it is consistent
+with previously defined task boards and task cards.
+*/
+#widgets dl{
+    margin:0.2em;
+    padding:0.9em;
+    border-radius: 20px;
+    background-color:rgb(6, 12, 52);
+    display: grid;
+    gap:0.2em;
+    grid-template-columns: 1fr 1fr;
+    transition: 150ms;
+}
+
+/* 
+make dl, ul, and p in widgets display white box shadow effecting task stat and weather widget.
+*/
+#widgets dl:hover , #widgets ul:hover, #widgets p:hover {
+    box-shadow: 0px 0px 10px 1px white;
+    background-color: rgb(12, 22, 83);
+}
+
+/*
+style the unordered list section of 'due this week' widget to align with that of design direction defined.
+*/
+#this-week-widget ul{
+    margin:0.2em;
+    padding:0.9em;
+    border-radius: 20px;
+    background-color:rgb(6, 12, 52);
+    text-align:left;
+    list-style-position: inside;
+    transition: 150ms;
+}
+
+/*
+style the p elements inside 'task timer' widget to match with defined style directions, although would prefer
+if they were in they were in an enclosed container inside the widget.
+*/
+#task-timer-widget > p{
+    background-color: rgb(6, 12, 52);
+    margin:0.2em;
+    padding:0.9em;
+    border-radius: 20px;
+    transition: 150ms;
+}
+
+/* 
+move buttons in task timer to the right to be more in line with content
+*/
+#task-timer-stop {
+    margin-left: 0.5em;
+}
+
+/*
+style the footer, make it span across the entire body width, make it have a dark grey background, and add some padding and margin, such that the content
+does not appear to close to it.
+*/
+#footer {
+    margin-top: 3em;
+    background-color: rgb(17, 16, 32);
+    width: 100%;
+    padding:1.5em;
+}
