@@ -19,7 +19,7 @@ class TaskBoard extends LitElement {
         background-color: rgb(16, 23, 74);
         color: rgba(201, 206, 243, 1);
         border-radius:30px;
-        padding: 10px;
+        padding: 1em;
         margin: 10px;
         width: 250px;
         height: min-content;
@@ -32,6 +32,16 @@ class TaskBoard extends LitElement {
     }
     .task-actions li {
       display: inline-block;
+    }
+    .task-board-container{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    h3{
+      width:100%;
+      display:flex;
+      text-align:left;
     }
   `;
 
