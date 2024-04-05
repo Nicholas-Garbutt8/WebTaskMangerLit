@@ -16,13 +16,13 @@ class TaskBoard extends LitElement {
   static styles = css`
     :host {
         display: block;
-        background-color: #d0cb65;
-        color: #ffcc33;
-        border: 1px solid red;
+        background-color: rgb(16, 23, 74);
+        color: rgba(201, 206, 243, 1);
+        border-radius:30px;
         padding: 10px;
         margin: 10px;
         width: 250px;
-        height: 80dvh;
+        height: min-content;
     }
     :host input {
         width: 5em;
@@ -54,7 +54,7 @@ class TaskBoard extends LitElement {
       return html`<h3>${this.category}</h3> <p>${this._message}</p>`;
     } else if (this._tasks) {
       return html`
-          <div>
+          <div class="task-board-container">
             <h3>${this.category}</h3>
 
             <div class="card-list">
