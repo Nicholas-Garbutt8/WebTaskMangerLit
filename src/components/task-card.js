@@ -17,14 +17,13 @@ class TaskCard extends LitElement {
     :host {
         display: block;
         width: 200px;
-        background-color: #ffffcc;
-        color: #003000;
+        background-color:rgb(6, 12, 52);
+        color: rgba(201, 206, 243, 1);
     }
     :host input {
         width: 5em;
     }
     h2 {
-      background-color: red;
       font-size: large;
       font-variant: small-caps;
     }
