@@ -15,10 +15,12 @@ class TaskCard extends LitElement {
 
   static styles = css`
     :host {
+        border-radius:20px;
         display: block;
         width: 200px;
         background-color:rgb(6, 12, 52);
         color: rgba(201, 206, 243, 1);
+        margin-bottom:1em;
     }
     :host input {
         width: 5em;
@@ -26,6 +28,10 @@ class TaskCard extends LitElement {
     h2 {
       font-size: large;
       font-variant: small-caps;
+    }
+
+    .main-container{
+      padding:1em;
     }
   `;
 
@@ -47,7 +53,7 @@ class TaskCard extends LitElement {
       const ts = new Date(parseInt(this._task.timestamp));
       const due = new Date(parseInt(this._task.due));
       return html`
-      <div>
+      <div class ='main-container'>
         <h2>${this._task.summary}</h2>
         <p class='task-timestamp'>${ts.toDateString()}</p>
         <p class='task-due'>${due.toDateString()}</p>
