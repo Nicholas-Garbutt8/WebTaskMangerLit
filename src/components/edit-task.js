@@ -20,9 +20,14 @@ class EditTask extends LitElement {
         form div {
             display: grid;
             grid-template-columns: 1fr 3fr;
+            padding:0.5em;
         }
         input {
             width: 100%;
+        }
+        #edit-task-dialog{
+          border:none;
+          border-radius:20px;
         }
       `;
 
