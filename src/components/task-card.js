@@ -17,7 +17,7 @@ class TaskCard extends LitElement {
     :host {
         border-radius:20px;
         display: block;
-        width: 200px;
+        width: 100%;
         background-color:rgb(6, 12, 52);
         color: rgba(201, 206, 243, 1);
         margin-bottom:1em;
@@ -27,9 +27,7 @@ class TaskCard extends LitElement {
     }
     h2 {
       font-size: large;
-      font-variant: small-caps;
     }
-
     .main-container{
       padding:1em;
     }

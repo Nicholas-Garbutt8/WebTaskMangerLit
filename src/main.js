@@ -22,7 +22,6 @@ class Comp2110TaskManager extends LitElement {
       max-width: 960px;
       margin: 0 auto;
       text-align: center;
-      background-color: var(--comp2110-portal-background-color);
     }
 
     main {
