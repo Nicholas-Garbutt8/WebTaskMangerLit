@@ -37,6 +37,17 @@ class Comp2110TaskManager extends LitElement {
     .app-footer a {
       margin-left: 5px;
     }
+
+    header {
+      display:flex;
+      justify-content: space-around;
+    }
+
+    login-widget {
+      display:flex;
+      justify-content: space between;
+      align-items:center;
+    }
   `;
 
   constructor() {
