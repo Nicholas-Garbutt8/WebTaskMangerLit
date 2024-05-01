@@ -10,6 +10,20 @@ class CreateTask extends LitElement {
 
     static styles = css`
 
+        :host{
+            padding-bottom:1em;
+            width:100%;
+        }
+
+        #main-button{
+            border:none;
+            width:100%;
+            height:1em;
+            border-radius:20px;
+            justify-content:center;
+            align-items:center;
+            font-size:2em;
+        }
     `;
 
     connectedCallBack(){
@@ -23,6 +37,7 @@ class CreateTask extends LitElement {
 
     render(){
         return html`
+        <button id="main-button">+</button>
         `
     }
 
