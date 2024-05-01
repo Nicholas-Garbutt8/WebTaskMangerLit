@@ -16,10 +16,15 @@ class CreateTask extends LitElement {
         }
 
         #main-button{
+            padding:0;
+            margin:0;
+            display:flex;
             border:none;
             width:100%;
             height:1em;
             border-radius:20px;
+            color: rgba(201, 206, 243, 1);
+            background-color:rgb(6, 12, 52);
             justify-content:center;
             align-items:center;
             font-size:2em;
