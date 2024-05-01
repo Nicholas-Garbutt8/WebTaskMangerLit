@@ -17,7 +17,14 @@ class LoginWidget extends LitElement {
   static styles = css`
     :host {
         display: block;
-    }`;
+    }
+    
+    p{
+      color: rgba(201, 206, 243, 1);
+      padding-right:1em;
+    }
+    
+    `;
 
   constructor() {
     super();

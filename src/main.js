@@ -44,9 +44,13 @@ class Comp2110TaskManager extends LitElement {
       justify-content: space-around;
     }
 
+    h1{
+      color: rgba(201, 206, 243, 1);
+    }
+
     login-widget {
       display:flex;
-      justify-content: space between;
+      justify-content: space-between;
       align-items:center;
     }
   `;
