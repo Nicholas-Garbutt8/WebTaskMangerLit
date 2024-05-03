@@ -46,6 +46,7 @@ class EditTask extends LitElement {
     const formData = new FormData(event.target);
     const due = new Date(formData.get('due'));
     const newTask = {
+      category: formData.get('category'),
       summary: formData.get('summary'),
       text: formData.get('text'),
       priority: formData.get('priority'),
@@ -83,6 +84,10 @@ class EditTask extends LitElement {
         <button @click=${this._showModal}>Edit</button>
         <dialog id="edit-task-dialog">
             <form @submit="${this._submit}">
+                <div>
+                  <label for="category">Category</label>
+                  <input name="category" value=${this._task.category}>
+                </div>
                 <div>
                     <label for="summary">Summary</label>
                     <input name="summary" value=${this._task.summary}>
