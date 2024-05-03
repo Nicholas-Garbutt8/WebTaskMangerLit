@@ -6,6 +6,7 @@ import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/task-manager.js';
 import './components/create-task.js';
+import './components/delete-task.js';
 
 /**
  * Comp2110TaskManager component constructs the main UI of the application
