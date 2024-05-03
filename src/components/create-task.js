@@ -37,12 +37,14 @@ class CreateTask extends LitElement {
     }
 
     _submit(event){
-
+        console.log('create button clicked!')
+        event.preventDefault();
+        TaskModel.createTask();
     }
 
     render(){
         return html`
-        <button id="main-button">+</button>
+        <button id="main-button" @click=${this._submit}>+</button>
         `
     }
 

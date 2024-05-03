@@ -159,6 +159,36 @@ class Task {
           this.loadData();
         });
   }
+
+  createTask(){
+    const user = getUser();
+    const URL = `${BASE_URL}tasks/`;
+    const testTask = 
+    {
+      "id":null,
+      "due": null,
+      "priority": 1,
+      "category": "Doing",
+      "Summary": "NewCreatedTask",
+      "text": "lorem ipsum",
+      "timestamp": null
+    };
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'basic ' + user.token,
+        body: JSON.stringify(testTask)
+      }
+    })
+      .then((response) => response.json())
+      .then((data)=> {
+        this.loadData();
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
 }
 
 // Export an instance of the task object (singleton) where other modules can
