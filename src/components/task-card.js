@@ -24,11 +24,15 @@ class TaskCard extends LitElement {
       margin-bottom:1em;
     }
 
+    .main-container{
+      border-radius:20px;
+      transition:150ms;
+    }
+
     .main-container:hover{
       border-radius:20px;
       box-shadow: 0px 0px 10px 1px white;
       background-color: rgb(12, 22, 83);
-      transition:0.1s;
     }
     :host input {
         width: 5em;

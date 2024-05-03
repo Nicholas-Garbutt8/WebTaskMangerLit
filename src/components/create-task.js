@@ -28,7 +28,14 @@ class CreateTask extends LitElement {
             justify-content:center;
             align-items:center;
             font-size:2em;
+            transition:100ms;
         }
+
+        #main-button:hover{
+            box-shadow: 0px 0px 10px 1px white;
+            background-color: rgb(12, 22, 83);
+        }
+
     `;
 
     connectedCallBack(){
