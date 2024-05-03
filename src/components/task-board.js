@@ -14,19 +14,31 @@ class TaskBoard extends LitElement {
   };
 
   static styles = css`
-    :host {
-        display: block;
-        background-color: rgb(16, 23, 74);
-        color: rgba(201, 206, 243, 1);
-        border-radius:30px;
-        padding: 1em;
-        margin: 10px;
-        width: 250px;
-        height: min-content;
+    :host{
+      color:rgba(201, 206, 243, 0);
     }
+
     :host input {
         width: 5em;
     }
+
+    .background {
+      display: block;
+      background-color: rgb(16, 23, 74);
+      color: rgba(201, 206, 243, 1);
+      border-radius:30px;
+      padding: 1em;
+      margin: 10px;
+      width: 250px;
+      height: min-content;
+      transition:0.1s;
+    }
+
+    .background:hover{
+      background-color: rgb(24, 32, 100);
+      color:white;
+    }
+
     .task-actions {
       display: block;
     }
@@ -67,6 +79,7 @@ class TaskBoard extends LitElement {
       return html`<h3>${this.category}</h3> <p>${this._message}</p>`;
     } else if (this._tasks) {
       return html`
+        <div class="background">
           <div class="task-board-container">
             <h3>${this.category}</h3>
             <create-task></create-task>
@@ -76,6 +89,7 @@ class TaskBoard extends LitElement {
                 })}
             </div>
           </div>
+        </div>
         `;
     } else {
       return html`<h3>${this.category}</h3><p>Loading....</p>`;
