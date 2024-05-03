@@ -153,7 +153,7 @@ class Task {
         'Authorization': 'basic ' + user.token,
       },
       body: JSON.stringify({...existingTask, ...newTask}),
-    } )
+    })
         .then((response) => response.json())
         .then((data) => {
           this.loadData();
@@ -178,8 +178,8 @@ class Task {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'basic ' + user.token,
-        body: JSON.stringify(testTask)
-      }
+      },
+      body: JSON.stringify(testTask)
     })
       .then((response) => response.json())
       .then((data)=> {
