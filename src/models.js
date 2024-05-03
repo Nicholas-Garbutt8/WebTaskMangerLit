@@ -34,9 +34,14 @@ class Task {
         },
       })
           .then((response) => {
+            //clone response such that we are not consuming response twice
+            //and use clone to print to console to observe task array data.
+            let res = response.clone().json();
+            console.log(res);
             return response.json();
           })
           .then((data) => {
+            console.log(data);
             this._storeData(data.tasks);
           })
           .catch((error) => {

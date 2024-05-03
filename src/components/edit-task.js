@@ -13,23 +13,23 @@ class EditTask extends LitElement {
   };
 
   static styles = css`
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        form div {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            padding:0.5em;
-        }
-        input {
-            width: 100%;
-        }
-        #edit-task-dialog{
-          border:none;
-          border-radius:20px;
-        }
-      `;
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    form div {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding:0.5em;
+    }
+    input {
+        width: 100%;
+    }
+    #edit-task-dialog{
+      border:none;
+      border-radius:20px;
+    }
+  `;
 
   connectedCallback() {
     super.connectedCallback();
