@@ -43,6 +43,9 @@ class TaskBoard extends LitElement {
       display:flex;
       text-align:left;
     }
+    .card-list {
+      width:100%;
+    }
   `;
 
   constructor() {

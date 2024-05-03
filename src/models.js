@@ -169,7 +169,7 @@ class Task {
       "due": null,
       "priority": 1,
       "category": "Doing",
-      "Summary": "NewCreatedTask",
+      "summary": "NewCreatedTask",
       "text": "lorem ipsum",
       "timestamp": null
     };
