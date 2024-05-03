@@ -84,29 +84,29 @@ class EditTask extends LitElement {
         <button @click=${this._showModal}>Edit</button>
         <dialog id="edit-task-dialog">
             <form @submit="${this._submit}">
-                <div>
+                <div class="form-row">
                   <label for="category">Category</label>
                   <input name="category" value=${this._task.category}>
                 </div>
-                <div>
+                <div class="form-row">
                     <label for="summary">Summary</label>
                     <input name="summary" value=${this._task.summary}>
                 </div>
-                <div>
+                <div class="form-row">
                     <label for="text">Text</label>
                     <textarea name="text">${this._task.text}</textarea> 
                 </div>
-                <div>
+                <div class="form-row">
                     <label for="priority">Priority</label>
                     <input name="priority" 
                            type="number" 
                            value=${this._task.priority}> 
                 </div>
-                <div>
+                <div class="form-row">
                     <label for="due">Due</label>
                     <input name="due" type="datetime-local" value=${due}>
                 </div>
-                <div>
+                <div class="form-row">
                     <button @click="${this._hideModal}">Cancel</button>
                     <input value='Update' type=submit>
                 </div>
