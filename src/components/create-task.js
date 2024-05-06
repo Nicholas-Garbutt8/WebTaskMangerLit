@@ -49,9 +49,28 @@ class CreateTask extends LitElement {
         TaskModel.createTask();
     }
 
+    _showModal(){
+        const dialog = this.renderRoot.querySelector('#create-task-dialog');
+        dialog.showModal();
+    }
+
+    _hideModal(event){
+        event.preventDefault();
+        const dialog = this.renderRoot.querySelector('#create-task-dialog');
+        dialog.close();
+    }
+
     render(){
         return html`
-        <button id="main-button" @click=${this._submit}>+</button>
+        <button id="main-button" @click=${this._showModal}>+</button>
+        <dialog id="create-task-dialog">
+            <form @submit=${this._submit}>
+                <div class="form-row">
+                    <button @click="${this._hideModal}">Cancel</button>
+                    <input value='Create' type=submit>
+                </div>
+            </form>
+        </dialog>
         `
     }
 
