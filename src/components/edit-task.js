@@ -86,7 +86,12 @@ class EditTask extends LitElement {
             <form @submit="${this._submit}">
                 <div class="form-row">
                   <label for="category">Category</label>
-                  <input name="category" value=${this._task.category}>
+                  <select name="category" id="category-select">
+                    <option value=${this._task.category}>--Select a category--</option>
+                    <option value="ToDo">ToDo</option>
+                    <option value="Doing">Doing</option>
+                    <option value="Done">Done</option>
+                  </select>
                 </div>
                 <div class="form-row">
                     <label for="summary">Summary</label>
