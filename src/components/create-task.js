@@ -1,15 +1,14 @@
-import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-import {TaskModel} from '../models.js';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { TaskModel } from '../models.js';
 
 
 class CreateTask extends LitElement {
 
     static properties = {
-
-    }
+        _task: { state: true }
+    };
 
     static styles = css`
-
         :host{
             padding-bottom:1em;
             width:100%;
@@ -35,36 +34,72 @@ class CreateTask extends LitElement {
             box-shadow: 0px 0px 10px 1px white;
             background-color: rgb(12, 22, 83);
         }
-
     `;
 
-    connectedCallBack(){
-    super.connectedCallBack();
-
+    connectedCallBack() {
+        super.connectedCallBack();
     }
 
-    _submit(event){
+    _submit(event) {
         console.log('create button clicked!')
+        const formData = new FormData(event.target);
+        const due = new Date(formData.get('due'));
+        const newTask = {
+            category: formData.get('category'),
+            summary: formData.get('summary'),
+            text: formData.get('text'),
+            priority: formData.get('priority'),
+            due: due.valueOf(),
+          };
         event.preventDefault();
-        TaskModel.createTask();
+        TaskModel.createTask(newTask);
+        this._hideModal(event);
     }
 
-    _showModal(){
+    _showModal() {
         const dialog = this.renderRoot.querySelector('#create-task-dialog');
         dialog.showModal();
     }
 
-    _hideModal(event){
+    _hideModal(event) {
         event.preventDefault();
         const dialog = this.renderRoot.querySelector('#create-task-dialog');
         dialog.close();
     }
 
-    render(){
+    render() {
+        // convert due date from milliseconds time to an ISO string
+        // suitable for the datetime-local form input
+        const isoString = new Date().toISOString();
+        const due = isoString.substring(0, isoString.indexOf('T') + 6);
         return html`
         <button id="main-button" @click=${this._showModal}>+</button>
         <dialog id="create-task-dialog">
             <form @submit=${this._submit}>
+                <div class="form-row">
+                    <label for="category">Category</label>  
+                    <select name="category" id="category-select">
+                    <option value="ToDo">ToDo</option>
+                    <option value="Doing">Doing</option>
+                    <option value="Done">Done</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="summary">Summary</label>
+                    <input name="summary">
+                </div>
+                <div class="form-row">
+                    <label for="text">Text</label>
+                    <textarea name="text"></textarea> 
+                </div>
+                <div class="form-row">
+                    <label for="priority">Priority</label>
+                    <input name="priority" type="number"> 
+                </div>
+                <div class="form-row">
+                    <label for="due">Due</label>
+                    <input name="due" type="datetime-local" value=${due}>
+                </div>
                 <div class="form-row">
                     <button @click="${this._hideModal}">Cancel</button>
                     <input value='Create' type=submit>

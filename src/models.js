@@ -160,34 +160,21 @@ class Task {
         });
   }
 
-  createTask(){
+  createTask(newTask){
     const user = getUser();
     const URL = `${BASE_URL}tasks/`;
-    const testTask = 
-    {
-      "id":null,
-      "due": null,
-      "priority": 1,
-      "category": "Doing",
-      "summary": "NewCreatedTask",
-      "text": "lorem ipsum",
-      "timestamp": null
-    };
     fetch(URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'basic ' + user.token,
       },
-      body: JSON.stringify(testTask)
+      body: JSON.stringify(newTask)
     })
       .then((response) => response.json())
-      .then((data)=> {
+      .then((data)=>{
         this.loadData();
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+      });
   }
 }
 
