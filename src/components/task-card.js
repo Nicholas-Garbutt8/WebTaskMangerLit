@@ -69,7 +69,7 @@ class TaskCard extends LitElement {
         <p class='task-due'>${due.toDateString()}</p>
         <p class='task-content'>${this._task.text}</p>
         <p class='task-priority'>${this._task.priority}</p>
-
+        <delete-task id=${this.id}></delete-task>
         <edit-task id=${this.id}></edit-task>
       </div>
       `;

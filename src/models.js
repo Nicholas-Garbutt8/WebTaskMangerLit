@@ -34,10 +34,6 @@ class Task {
         },
       })
           .then((response) => {
-            //clone response such that we are not consuming response twice
-            //and use clone to print to console to observe task array data.
-            let res = response.clone().json();
-            console.log(res);
             return response.json();
           })
           .then((data) => {
@@ -143,6 +139,7 @@ class Task {
    * @param {Object} newTask
    */
   updateTask(id, newTask) {
+    console.log(id);
     const existingTask = this.getTask(id);
     const URL = `${BASE_URL}tasks/${id}`;
     const user = getUser();
@@ -175,10 +172,27 @@ class Task {
       //have to dispatch a custom 'user' event for the page to refresh
       //upon creating a new task... interestingly not needed for update task
       .then((data) => {
-        this.loadData();
         const event = new CustomEvent('user');
         window.dispatchEvent(event);
       });
+  }
+
+  deleteTask(id){
+    const user = getUser();
+    const existingTask = this.getTask(id);
+    const URL = `${BASE_URL}tasks/${id}`;
+    fetch(URL, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'basic ' + user.token,
+      },
+    })
+      .then((response) => response.json())
+      .then((data)=>{
+        const event = new CustomEvent('user');
+        window.dispatchEvent(event);
+      })
   }
 }
 
