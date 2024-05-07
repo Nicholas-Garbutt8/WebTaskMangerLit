@@ -11,6 +11,7 @@ class TaskCard extends LitElement {
   static properties = {
     id: 0,
     _task: {state: true},
+    text: ''
   };
 
   static styles = css`
@@ -57,6 +58,13 @@ class TaskCard extends LitElement {
   _loadData() {
     this._task = TaskModel.getTask(this.id);
   }
+
+  //implement a function that provides a popup,
+  //(dialog perhaps similar to edit task)
+  //that gives the full view of each of the fields
+  //and all of their content. on the main view task cards
+  //will have their text and summary cut from the nearest
+  //word followed by ... to indicate more content
 
   render() {
     if (this._task) {
