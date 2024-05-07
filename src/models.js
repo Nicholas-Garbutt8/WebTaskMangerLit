@@ -73,7 +73,6 @@ class Task {
   _updateEvent() {
     console.log('updateEvent called')
     // send out an update event
-    this.loadData();
     const event = new CustomEvent('tasks');
     window.dispatchEvent(event);
   }
@@ -156,6 +155,8 @@ class Task {
         .then((response) => response.json())
         .then((data) => {
           this.loadData();
+          const event = new CustomEvent('user');
+          window.dispatchEvent(event);
         });
   }
 
@@ -174,6 +175,7 @@ class Task {
       //have to dispatch a custom 'user' event for the page to refresh
       //upon creating a new task... interestingly not needed for update task
       .then((data) => {
+        this.loadData();
         const event = new CustomEvent('user');
         window.dispatchEvent(event);
       });
@@ -192,6 +194,7 @@ class Task {
     })
       .then((response) => response.json())
       .then((data)=>{
+        this.loadData();
         const event = new CustomEvent('user');
         window.dispatchEvent(event);
       })
