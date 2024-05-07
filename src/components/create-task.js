@@ -9,6 +9,19 @@ class CreateTask extends LitElement {
     };
 
     static styles = css`
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form div {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            padding:0.5em;
+        }
+        input {
+            width: 100%;
+        }
+
         :host{
             padding-bottom:1em;
             width:100%;
