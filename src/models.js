@@ -169,11 +169,15 @@ class Task {
         'Content-Type': 'application/json',
         'Authorization': 'basic ' + user.token,
       },
-      body: JSON.stringify(newTask)
+      body: JSON.stringify(newTask),
     })
       .then((response) => response.json())
-      .then((data)=>{
+      //have to dispatch a custom 'user' event for the page to refresh
+      //upon creating a new task... interestingly not needed for update task
+      .then((data) => {
         this.loadData();
+        const event = new CustomEvent('user');
+        window.dispatchEvent(event);
       });
   }
 }
