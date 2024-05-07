@@ -26,7 +26,7 @@ class DeleteTask extends LitElement{
 
    render(){
     return html`
-    <button @click=${this._delete}>delete</button>
+    <button @click=${this._delete}>Delete</button>
     `
    }
 
