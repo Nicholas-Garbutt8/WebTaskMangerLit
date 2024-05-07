@@ -71,7 +71,9 @@ class Task {
    * a 'task' event on the global window when task data changes
    */
   _updateEvent() {
+    console.log('updateEvent called')
     // send out an update event
+    this.loadData();
     const event = new CustomEvent('tasks');
     window.dispatchEvent(event);
   }
@@ -139,7 +141,7 @@ class Task {
    * @param {Object} newTask
    */
   updateTask(id, newTask) {
-    console.log(id);
+    console.log('updateTask called');
     const existingTask = this.getTask(id);
     const URL = `${BASE_URL}tasks/${id}`;
     const user = getUser();

@@ -75,6 +75,7 @@ class TaskBoard extends LitElement {
   }
 
   render() {
+    console.log('task-board render called')
     if (this._message) {
       return html`<h3>${this.category}</h3> <p>${this._message}</p>`;
     } else if (this._tasks) {
