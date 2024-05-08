@@ -22,3 +22,10 @@ Until now I have been trying to make a working widget in my own separate copy so
 word
 - Changed styling to match the "style.css" file,
 - Added "taskTimerWidget.js" -- for a timer as one of the widgets.
+
+## Nicholas
+-Created a timer widget
+  -Runs for 15mins
+  -Ability to start,pause and resume the timer
+  -Able to reset timer back to base state
+  -Able to set timer to length
