@@ -5,7 +5,8 @@ import { TaskModel } from '../models.js';
 class CreateTask extends LitElement {
 
     static properties = {
-        _task: { state: true }
+        _task: { state: true },
+        category: {}
     };
 
     static styles = css`
@@ -92,6 +93,7 @@ class CreateTask extends LitElement {
                 <div class="form-row">
                     <label for="category">Category</label>  
                     <select name="category" id="category-select">
+                    <option value=${this.category}>--Select a category--</option>
                     <option value="ToDo">ToDo</option>
                     <option value="Doing">Doing</option>
                     <option value="Done">Done</option>

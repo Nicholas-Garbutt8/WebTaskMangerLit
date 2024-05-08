@@ -16,6 +16,8 @@ class TaskBoard extends LitElement {
   static styles = css`
     :host{
       color:rgba(201, 206, 243, 0);
+      display:flex;
+      justify-content:center;
     }
 
     :host input {
@@ -29,9 +31,8 @@ class TaskBoard extends LitElement {
       border-radius:30px;
       padding: 1em;
       margin: 10px;
-      width: 250px;
       height: min-content;
-      transition:0.1s;
+      transition:150ms;
     }
 
     .background:hover{
@@ -83,7 +84,7 @@ class TaskBoard extends LitElement {
         <div class="background">
           <div class="task-board-container">
             <h3>${this.category}</h3>
-            <create-task></create-task>
+            <create-task category=${this.category}></create-task>
             <div class="card-list">
               ${this._tasks.map((task) => {
                   return html`<task-card id=${task.id}></task-card>`;

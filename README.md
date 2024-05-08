@@ -30,3 +30,19 @@ word
 - Ability to start,pause and resume the timer
 - Able to reset timer back to base state
 - Able to set timer to length
+
+## Noah
+create-task file:
+- based on edit-task, calls a dialog where the user inputs the fields of the new task they want to create
+- it then sends the form data to a newly created models.js function 'createTask' which accepts the data
+- which then sends a fetch post request to the server with the new task json data in the body
+- it then reloads the page to show the made changes.
+
+delete-task file:
+- simple implementation that provides the user a delete button for each of the task cards which is initialised with
+- the task id of the task that it is created on. This task id is then passed to a new models.js function 'deleteTask'
+- which sends a fetch delete request to the server with the task id.
+- it then reloads the page to show the made changes.
+
+Styling:
+- Implemented style hover effects

@@ -29,6 +29,20 @@ class EditTask extends LitElement {
       border:none;
       border-radius:20px;
     }
+
+    #edit-button{
+      color:white;
+      background-color:black;
+      border:none;
+      border-radius: 15px;
+      padding:0.5em;
+      transition:150ms;
+    }
+
+    #edit-button:hover {
+        background-color: rgb(20, 20, 20);
+    }
+
   `;
 
   connectedCallback() {
@@ -81,7 +95,7 @@ class EditTask extends LitElement {
     const isoString = new Date(this._task.due).toISOString();
     const due = isoString.substring(0, isoString.indexOf('T') + 6);
     return html`
-        <button @click=${this._showModal}>Edit</button>
+        <button id="edit-button" @click=${this._showModal}>Edit</button>
         <dialog id="edit-task-dialog">
             <form @submit="${this._submit}">
                 <div class="form-row">

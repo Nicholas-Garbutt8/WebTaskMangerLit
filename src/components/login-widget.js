@@ -23,6 +23,19 @@ class LoginWidget extends LitElement {
       color: rgba(201, 206, 243, 1);
       padding-right:1em;
     }
+
+    #logout-button, #login-button{
+      color:white;
+      background-color:black;
+      border:none;
+      border-radius: 15px;
+      padding:0.5em;
+      transition:150ms;
+    }
+
+    #logout-button:hover, #login-button:hover {
+        background-color: rgb(20, 20, 20);
+    }
     
     `;
 
@@ -61,14 +74,14 @@ class LoginWidget extends LitElement {
   render() {
     if (this._user) {
       return html`<p>Logged in as ${this._user.name}</p>
-              <button @click=${this._logout}>Logout</button>`;
+              <button id="logout-button" @click=${this._logout}>Logout</button>`;
     }
     return html`
       <p>${this._errorMessage}</p>
       <form @submit=${this._submitForm}>
           Username: <input name="username">
           Password: <input type="password" name="password">
-          <input type='submit' value='Login'>
+          <input id="login-button" type='submit' value='Login'>
       </form>`;
   }
 }
