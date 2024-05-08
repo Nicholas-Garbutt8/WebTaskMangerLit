@@ -22,8 +22,7 @@ Until now I have been trying to make a working widget in my own separate copy so
 
 ## Matthew
 word
-- Changed styling to match the "style.css" file,
-- Added "taskTimerWidget.js" -- for a timer as one of the widgets.
+- Changed styling to match the "style.css" file
 
 ## Nicholas
 - Created a timer widget
