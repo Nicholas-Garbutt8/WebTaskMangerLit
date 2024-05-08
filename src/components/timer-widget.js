@@ -49,33 +49,48 @@ class Timer extends LitElement {
     this.render();
   }
 
-  _toggleTimer() {
+  toggle() {
     if (this.status) {
-      clearInterval(this._countDownInterval);https://www.youtube.com/watch?v=15ydPmg6MKE
+      clearInterval(this._countDownInterval);
       this.status = false;
     } else {
       this._countDownInterval = setInterval(() => {
         this.currTime--;
         this.requestUpdate('currTime');
-        if (this.currTime == 0 || this.currTime < 1) {
-          this._endCount();
-          clearInterval(this._countDownInterval);
+        if (this.currTime == 0) {
+          this.end();
         }
       }, 1000);
       this.status = true; 
     }
   }
 
-  
+  reset() {
+    this.status = false; 
+    this.currTime = this.startTime; 
+    this._message = null;
+    clearInterval(this._countDownInterval);
+  }
+
+  length() {
+    let newTime = prompt("Timer length:");
+    this.startTime = parseInt(newTime); 
+    this.reset();
+    this.requestUpdate('currTime'); 
+  }
+
+  end() {
+    this._message = "Beep Beep timer done";
+  }
 
   render() {
     return html`
       <h3>${this.category}</h3>
       ${this._message ? html`<p>${this._message}</p>` : html`<p>Time Remaining: ${this.currtime(this.currTime)}</p>`}
     
-      <button @click="${this._toggleTimer}">${this.status ? 'Pause || Resume Timer' : 'Start Timer'}</button>
-      <button @click="${this._resetTimer}">Reset Timer</button>
-      <button @click="${this._setTimerLength}""${this.status}">Set Timer</button>
+      <button @click="${this.toggle}">${this.status ? 'Pause || Resume Timer' : 'Start Timer'}</button>
+      <button @click="${this.reset}">Reset Timer</button>
+      <button @click="${this.length}""${this.status}">Set Timer</button>
     `;
   }
 
