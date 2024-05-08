@@ -14,24 +14,49 @@ class TaskBoard extends LitElement {
   };
 
   static styles = css`
-    :host {
-        display: block;
-        background-color: #d0cb65;
-        color: #ffcc33;
-        border: 1px solid red;
-        padding: 10px;
-        margin: 10px;
-        width: 250px;
-        height: 80dvh;
+    :host{
+      color:rgba(201, 206, 243, 0);
     }
+
     :host input {
         width: 5em;
     }
+
+    .background {
+      display: block;
+      background-color: rgb(16, 23, 74);
+      color: rgba(201, 206, 243, 1);
+      border-radius:30px;
+      padding: 1em;
+      margin: 10px;
+      width: 250px;
+      height: min-content;
+      transition:0.1s;
+    }
+
+    .background:hover{
+      background-color: rgb(24, 32, 100);
+      color:white;
+    }
+
     .task-actions {
       display: block;
     }
     .task-actions li {
       display: inline-block;
+    }
+    .task-board-container{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    h3{
+      width:100%;
+      display:flex;
+      text-align:left;
+    }
+    .card-list {
+      width:100%;
     }
   `;
 
@@ -50,19 +75,22 @@ class TaskBoard extends LitElement {
   }
 
   render() {
+    console.log('task-board render called')
     if (this._message) {
       return html`<h3>${this.category}</h3> <p>${this._message}</p>`;
     } else if (this._tasks) {
       return html`
-          <div>
+        <div class="background">
+          <div class="task-board-container">
             <h3>${this.category}</h3>
-
+            <create-task></create-task>
             <div class="card-list">
               ${this._tasks.map((task) => {
                   return html`<task-card id=${task.id}></task-card>`;
                 })}
             </div>
           </div>
+        </div>
         `;
     } else {
       return html`<h3>${this.category}</h3><p>Loading....</p>`;

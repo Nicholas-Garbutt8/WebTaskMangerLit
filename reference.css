@@ -175,7 +175,7 @@ grid template column. 'auto-fit' defines that the layout will fit as many column
 size specified via the second argument. 'minmax()' specifies a minimum and maximum size that the columns can be given by the first and 
 second arguments respectively, for this instance when the viewport width is increased such that an additional column can exist with all
 being the specified minimum width (360px) a new column will be created if there are elements that can be displayed. However if additional
-columns are needed, the existing columns can stretch evenly being even fractions (1fr) of the container.
+columns aren't needed, the existing columns can stretch evenly being even fractions (1fr) of the container.
 */
 #task-manager {
     max-width: 66%;

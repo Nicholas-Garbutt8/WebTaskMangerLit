@@ -37,6 +37,7 @@ class Task {
             return response.json();
           })
           .then((data) => {
+            console.log(data);
             this._storeData(data.tasks);
           })
           .catch((error) => {
@@ -70,6 +71,7 @@ class Task {
    * a 'task' event on the global window when task data changes
    */
   _updateEvent() {
+    console.log('updateEvent called')
     // send out an update event
     const event = new CustomEvent('tasks');
     window.dispatchEvent(event);
@@ -138,6 +140,7 @@ class Task {
    * @param {Object} newTask
    */
   updateTask(id, newTask) {
+    console.log('updateTask called');
     const existingTask = this.getTask(id);
     const URL = `${BASE_URL}tasks/${id}`;
     const user = getUser();
@@ -148,11 +151,53 @@ class Task {
         'Authorization': 'basic ' + user.token,
       },
       body: JSON.stringify({...existingTask, ...newTask}),
-    } )
+    })
         .then((response) => response.json())
         .then((data) => {
           this.loadData();
+          const event = new CustomEvent('user');
+          window.dispatchEvent(event);
         });
+  }
+
+  createTask(newTask){
+    const user = getUser();
+    const URL = `${BASE_URL}tasks/`;
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'basic ' + user.token,
+      },
+      body: JSON.stringify(newTask),
+    })
+      .then((response) => response.json())
+      //have to dispatch a custom 'user' event for the page to refresh
+      //upon creating a new task... interestingly not needed for update task
+      .then((data) => {
+        this.loadData();
+        const event = new CustomEvent('user');
+        window.dispatchEvent(event);
+      });
+  }
+
+  deleteTask(id){
+    const user = getUser();
+    const existingTask = this.getTask(id);
+    const URL = `${BASE_URL}tasks/${id}`;
+    fetch(URL, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'basic ' + user.token,
+      },
+    })
+      .then((response) => response.json())
+      .then((data)=>{
+        this.loadData();
+        const event = new CustomEvent('user');
+        window.dispatchEvent(event);
+      })
   }
 }
 

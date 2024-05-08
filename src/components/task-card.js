@@ -11,22 +11,38 @@ class TaskCard extends LitElement {
   static properties = {
     id: 0,
     _task: {state: true},
+    text: ''
   };
 
   static styles = css`
-    :host {
-        display: block;
-        width: 200px;
-        background-color: #ffffcc;
-        color: #003000;
+
+    :host{
+      border-radius:20px;
+      display: block;
+      width: 100%;
+      background-color:rgb(6, 12, 52);
+      color: rgba(201, 206, 243, 1);
+      margin-bottom:1em;
+    }
+
+    .main-container{
+      border-radius:20px;
+      transition:150ms;
+    }
+
+    .main-container:hover{
+      border-radius:20px;
+      box-shadow: 0px 0px 10px 1px white;
+      background-color: rgb(12, 22, 83);
     }
     :host input {
         width: 5em;
     }
     h2 {
-      background-color: red;
       font-size: large;
-      font-variant: small-caps;
+    }
+    .main-container{
+      padding:1em;
     }
   `;
 
@@ -43,18 +59,25 @@ class TaskCard extends LitElement {
     this._task = TaskModel.getTask(this.id);
   }
 
+  //implement a function that provides a popup,
+  //(dialog perhaps similar to edit task)
+  //that gives the full view of each of the fields
+  //and all of their content. on the main view task cards
+  //will have their text and summary cut from the nearest
+  //word followed by ... to indicate more content
+
   render() {
     if (this._task) {
       const ts = new Date(parseInt(this._task.timestamp));
       const due = new Date(parseInt(this._task.due));
       return html`
-      <div>
+      <div class ='main-container'>
         <h2>${this._task.summary}</h2>
         <p class='task-timestamp'>${ts.toDateString()}</p>
         <p class='task-due'>${due.toDateString()}</p>
         <p class='task-content'>${this._task.text}</p>
         <p class='task-priority'>${this._task.priority}</p>
-
+        <delete-task id=${this.id}></delete-task>
         <edit-task id=${this.id}></edit-task>
       </div>
       `;

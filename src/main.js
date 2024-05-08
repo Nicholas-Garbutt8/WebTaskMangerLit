@@ -5,6 +5,8 @@ import './components/widget-container.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/task-manager.js';
+import './components/create-task.js';
+import './components/delete-task.js';
 
 /**
  * Comp2110TaskManager component constructs the main UI of the application
@@ -22,10 +24,22 @@ class Comp2110TaskManager extends LitElement {
       max-width: 960px;
       margin: 0 auto;
       text-align: center;
-      background-color: var(--comp2110-portal-background-color);
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      padding:1em;
+      background-color: rgba(17, 16, 32, 0.974);
+      display:flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width:100%;
+      margin-bottom: 1em;
     }
 
     main {
+      margin-top: 10em;
       display: flex;
       justify-content: space-between;
     }
@@ -37,6 +51,21 @@ class Comp2110TaskManager extends LitElement {
 
     .app-footer a {
       margin-left: 5px;
+    }
+
+    header {
+      display:flex;
+      justify-content: space-around;
+    }
+
+    h1{
+      color: rgba(201, 206, 243, 1);
+    }
+
+    login-widget {
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
     }
   `;
 

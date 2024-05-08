@@ -13,18 +13,23 @@ class EditTask extends LitElement {
   };
 
   static styles = css`
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        form div {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-        }
-        input {
-            width: 100%;
-        }
-      `;
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    form div {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding:0.5em;
+    }
+    input {
+        width: 100%;
+    }
+    #edit-task-dialog{
+      border:none;
+      border-radius:20px;
+    }
+  `;
 
   connectedCallback() {
     super.connectedCallback();
@@ -41,6 +46,7 @@ class EditTask extends LitElement {
     const formData = new FormData(event.target);
     const due = new Date(formData.get('due'));
     const newTask = {
+      category: formData.get('category'),
       summary: formData.get('summary'),
       text: formData.get('text'),
       priority: formData.get('priority'),
@@ -78,25 +84,34 @@ class EditTask extends LitElement {
         <button @click=${this._showModal}>Edit</button>
         <dialog id="edit-task-dialog">
             <form @submit="${this._submit}">
-                <div>
+                <div class="form-row">
+                  <label for="category">Category</label>
+                  <select name="category" id="category-select">
+                    <option value=${this._task.category}>--Select a category--</option>
+                    <option value="ToDo">ToDo</option>
+                    <option value="Doing">Doing</option>
+                    <option value="Done">Done</option>
+                  </select>
+                </div>
+                <div class="form-row">
                     <label for="summary">Summary</label>
                     <input name="summary" value=${this._task.summary}>
                 </div>
-                <div>
+                <div class="form-row">
                     <label for="text">Text</label>
                     <textarea name="text">${this._task.text}</textarea> 
                 </div>
-                <div>
+                <div class="form-row">
                     <label for="priority">Priority</label>
                     <input name="priority" 
                            type="number" 
                            value=${this._task.priority}> 
                 </div>
-                <div>
+                <div class="form-row">
                     <label for="due">Due</label>
                     <input name="due" type="datetime-local" value=${due}>
                 </div>
-                <div>
+                <div class="form-row">
                     <button @click="${this._hideModal}">Cancel</button>
                     <input value='Update' type=submit>
                 </div>
