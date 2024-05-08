@@ -24,8 +24,8 @@ word
 - Added "taskTimerWidget.js" -- for a timer as one of the widgets.
 
 ## Nicholas
--Created a timer widget
-  -Runs for 15mins
-  -Ability to start,pause and resume the timer
-  -Able to reset timer back to base state
-  -Able to set timer to length
+- Created a timer widget
+- Runs for 15mins
+- Ability to start,pause and resume the timer
+- Able to reset timer back to base state
+- Able to set timer to length
