@@ -1,4 +1,4 @@
-import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import './components/widget-block.js';
 import './components/blog-block.js';
 import './components/widget-container.js';
@@ -13,7 +13,7 @@ import './components/weeksum-widget.js';
  */
 class Comp2110TaskManager extends LitElement {
   static properties = {
-    header: {type: String},
+    header: { type: String },
   };
 
   static styles = css`
@@ -26,6 +26,23 @@ class Comp2110TaskManager extends LitElement {
       text-align: center;
       background-color: var(--comp2110-portal-background-color);
     }
+
+    header > * {
+      margin-inline: 1em;
+      margin-block: 0.5em;
+  }
+
+  header{
+    top:0;
+    padding:1.5em;
+    background-color: rgba(17, 16, 32, 0.974);
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width:100%;
+    margin-bottom: 1em;
+    color: white;
+}
 
     main {
       display: flex;
@@ -40,6 +57,11 @@ class Comp2110TaskManager extends LitElement {
     .app-footer a {
       margin-left: 5px;
     }
+
+
+    
+
+
   `;
 
   constructor() {

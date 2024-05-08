@@ -243,6 +243,7 @@ when a task board is hovered over by the cursor change its background colour to 
     display: flex;
     flex-direction: column;
     transition: 150ms;
+    text-overflow: ellipsis;
 }
 
 /*
@@ -353,4 +354,5 @@ does not appear to close to it.
     background-color: rgb(17, 16, 32);
     width: 100%;
     padding:1.5em;
+    overflow: auto;
 }

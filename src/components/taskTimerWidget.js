@@ -6,7 +6,7 @@ import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core
  * Base example for a widget, used as a placeholder in design for unimplemented
  * widgets
  */
-class WidgetBlock extends LitElement {
+class taskTimer extends LitElement {
   static properties = {
     header: {type: String},
   };
@@ -34,4 +34,4 @@ class WidgetBlock extends LitElement {
   }
 }
 
-customElements.define('widget-block', WidgetBlock);
+customElements.define('task-timer', taskTimer);

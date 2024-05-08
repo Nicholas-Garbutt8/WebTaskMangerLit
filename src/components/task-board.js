@@ -15,24 +15,33 @@ class TaskBoard extends LitElement {
 
   static styles = css`
     :host {
-        display: block;
-        background-color: #d0cb65;
-        color: #ffcc33;
-        border: 1px solid red;
-        padding: 10px;
-        margin: 10px;
-        width: 250px;
-        height: 80dvh;
+      margin-left: 3.5em;
+      background-color: rgb(16, 23, 74);
+      border-radius: 30px;
+      padding: 1em;
+      padding-top: 2em;
+      height: fit-content;
+      transition:150ms;
+      width: 20em;
+      color: white;
     }
     :host input {
         width: 5em;
     }
+
+    :host:hover {
+      background-color: rgb(24, 32, 100);
+      color:white;
+    }
+
+
     .task-actions {
       display: block;
     }
     .task-actions li {
       display: inline-block;
     }
+
   `;
 
   constructor() {
