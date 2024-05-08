@@ -15,20 +15,36 @@ class DeleteTask extends LitElement{
     static properties = {
         id: 0
     }
-   
-   connectedCallback() {
-       super.connectedCallback();
-   }
 
-   _delete(){
-        TaskModel.deleteTask(this.id);
-   }
+    static styles = css`
 
-   render(){
-    return html`
-    <button @click=${this._delete}>Delete</button>
+    #delete-button{
+        color:white;
+        background-color:black;
+        border:none;
+        border-radius: 15px;
+        padding:0.5em;
+        transition:150ms;
+    }
+
+    #delete-button:hover {
+        background-color: rgb(20, 20, 20);
+    }
+    
     `
-   }
+    connectedCallback() {
+        super.connectedCallback();
+    }
+
+    _delete(){
+        TaskModel.deleteTask(this.id);
+    }
+
+    render(){
+        return html`
+        <button id="delete-button" @click=${this._delete}>Delete</button>
+        `
+    }
 
 }
 
