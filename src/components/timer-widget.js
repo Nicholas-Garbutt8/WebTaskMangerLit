@@ -40,7 +40,7 @@ class Timer extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    clearInterval(this._countDownInterval);
+    clearInterval(this.countSpeed);
   }
 
   _loadData() {
@@ -51,10 +51,10 @@ class Timer extends LitElement {
 
   toggle() {
     if (this.status) {
-      clearInterval(this._countDownInterval);
+      clearInterval(this.countSpeed);
       this.status = false;
     } else {
-      this._countDownInterval = setInterval(() => {
+      this.countSpeed = setInterval(() => {
         this.currTime--;
         this.requestUpdate('currTime');
         if (this.currTime == 0) {
@@ -69,7 +69,7 @@ class Timer extends LitElement {
     this.status = false; 
     this.currTime = this.startTime; 
     this._message = null;
-    clearInterval(this._countDownInterval);
+    clearInterval(this.countSpeed);
   }
 
   length() {
