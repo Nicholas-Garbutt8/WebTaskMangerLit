@@ -15,10 +15,15 @@ class TaskCard extends LitElement {
 
   static styles = css`
     :host {
-        display: block;
-        width: 200px;
-        background-color: #ffffcc;
-        color: #003000;
+      margin:0.2em;
+      margin-top:1em;
+      padding:0.5em;
+      border-radius: 20px;
+      background-color:rgb(6, 12, 52);
+      display: flex;
+      flex-direction: column;
+      transition: 150ms;
+      overflow: auto;
     }
     :host input {
         width: 5em;
@@ -27,7 +32,19 @@ class TaskCard extends LitElement {
       background-color: red;
       font-size: large;
       font-variant: small-caps;
+      background-color: rgb(6, 12, 52);
+      margin:0.2em;
+      padding:0.9em;
+      border-radius: 20px;
+      transition: 150ms;
+      color: white;
     }
+
+    p {
+      color: white;
+    }
+
+    
   `;
 
   connectedCallback() {

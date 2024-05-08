@@ -11,7 +11,7 @@ class BMIWidget extends LitElement {
         display: block;
         width: 250px;
         height: 250px;
-        background-color: forestgreen;
+        background-color: red;
         color: yellow;
     }
     :host input {

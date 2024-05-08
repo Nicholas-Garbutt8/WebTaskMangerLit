@@ -1,20 +1,22 @@
-import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import './components/widget-block.js';
 import './components/blog-block.js';
 import './components/widget-container.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/task-manager.js';
-//Avi's Widget
+//Avi's Widget(s);
 import './components/weeksum-widget.js';
 import './components/weeksum-card.js';
+//Nick's Widget
+import './components/timer-widget.js';
 
 /**
  * Comp2110TaskManager component constructs the main UI of the application
  */
 class Comp2110TaskManager extends LitElement {
   static properties = {
-    header: {type: String},
+    header: { type: String },
   };
 
   static styles = css`
@@ -27,6 +29,23 @@ class Comp2110TaskManager extends LitElement {
       text-align: center;
       background-color: var(--comp2110-portal-background-color);
     }
+
+    header > * {
+      margin-inline: 1em;
+      margin-block: 0.5em;
+  }
+
+  header{
+    top:0;
+    padding:1.5em;
+    background-color: rgba(17, 16, 32, 0.974);
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width:100%;
+    margin-bottom: 1em;
+    color: white;
+}
 
     main {
       display: flex;
@@ -60,7 +79,7 @@ class Comp2110TaskManager extends LitElement {
         <widget-container header="Widgets">
           <ad-widget></ad-widget>
           <weeksum-widget category='ToDo'></weeksum-widget>
-          <widget-block header="Widget 2"></widget-block>
+          <timer-widget></timer-widget>
           <widget-block header="Widget 3"></widget-block>
         </widget-container>
       </main>

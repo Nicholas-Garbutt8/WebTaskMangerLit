@@ -17,6 +17,8 @@ class LoginWidget extends LitElement {
   static styles = css`
     :host {
         display: block;
+        font-size: larger;
+        align: center;
     }`;
 
   constructor() {
