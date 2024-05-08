@@ -5,6 +5,7 @@ import './components/widget-container.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/task-manager.js';
+import "./components/bmi-widget.js";
 //Avi's Widget(s);
 import './components/weeksum-widget.js';
 import './components/weeksum-card.js';
@@ -12,6 +13,9 @@ import './components/weeksum-card.js';
 import './components/timer-widget.js';
 import './components/create-task.js';
 import './components/delete-task.js';
+
+// Matthew's Widget
+import "./components/gameWidget.js";
 
 /**
  * Comp2110TaskManager component constructs the main UI of the application
@@ -96,6 +100,10 @@ class Comp2110TaskManager extends LitElement {
     this.header = 'COMP2110 Task Manager';
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
   render() {
     return html`
       <header>
@@ -109,7 +117,7 @@ class Comp2110TaskManager extends LitElement {
           <ad-widget></ad-widget>
           <weeksum-widget category='ToDo'></weeksum-widget>
           <timer-widget></timer-widget>
-          <widget-block header="Widget 3"></widget-block>
+          <game-widget></game-widget>
         </widget-container>
       </main>
 

@@ -30,7 +30,8 @@ class TaskBoard extends LitElement {
       color: rgba(201, 206, 243, 1);
       border-radius:30px;
       padding: 1em;
-      margin: 10px;
+      margin: 5ex;
+      width: 300px;
       height: min-content;
       transition:150ms;
     }
