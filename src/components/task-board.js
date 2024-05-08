@@ -16,6 +16,8 @@ class TaskBoard extends LitElement {
   static styles = css`
     :host{
       color:rgba(201, 206, 243, 0);
+      display:flex;
+      justify-content:center;
     }
 
     :host input {
@@ -29,9 +31,8 @@ class TaskBoard extends LitElement {
       border-radius:30px;
       padding: 1em;
       margin: 10px;
-      width: 250px;
       height: min-content;
-      transition:0.1s;
+      transition:150ms;
     }
 
     .background:hover{

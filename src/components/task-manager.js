@@ -14,9 +14,14 @@ class TaskManager extends LitElement {
   };
 
   static styles = css`
+    :host{
+      width:66%;
+    }
+
     .task-manager {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+      width:100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(360px,1fr));
     }
   `;
 
