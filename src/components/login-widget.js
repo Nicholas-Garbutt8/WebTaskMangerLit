@@ -24,7 +24,7 @@ class LoginWidget extends LitElement {
       padding-right:1em;
     }
 
-    #logout-button{
+    #logout-button, #login-button{
       color:white;
       background-color:black;
       border:none;
@@ -33,7 +33,7 @@ class LoginWidget extends LitElement {
       transition:150ms;
     }
 
-    #logout-button:hover {
+    #logout-button:hover, #login-button:hover {
         background-color: rgb(20, 20, 20);
     }
     
@@ -81,7 +81,7 @@ class LoginWidget extends LitElement {
       <form @submit=${this._submitForm}>
           Username: <input name="username">
           Password: <input type="password" name="password">
-          <input type='submit' value='Login'>
+          <input id="login-button" type='submit' value='Login'>
       </form>`;
   }
 }
