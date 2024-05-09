@@ -14,16 +14,16 @@ class AdWidget extends LitElement {
         display: block;
         width: 250px;
         height: 250px;
-        background-color: azure;
     }
-    :host p {
-      position: relative;
-      top: -50px;
-      text-align: right;
-      padding-right: 10px;
-      z-index: 0;
-      color: white;
+    
+    .container{
+      border-radius: 20px;
     }
+
+    img { 
+      border-radius: 20px;
+    }
+
   `;
 
   constructor() {
@@ -33,9 +33,8 @@ class AdWidget extends LitElement {
 
   render() {
     return html`
-  <div>
+  <div class="container">
         <img src=${this.adUrl} alt="Advertisment">
-        <p>Advertisment</p>
   </div>
     `;
   }
