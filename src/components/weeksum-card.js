@@ -11,15 +11,14 @@ class WeeksumCard extends LitElement {
     :host {
         display: inherit;
         width: 250px;
-        background-color: white;
     }
     h2 {
-      background-color: lightblue;
+      background-color: rgba(33,60,200,1);
       font-size: small;
       font-variant: small-caps;
+      color: white;
     }
     p {
-      background-color: white;
       font-size: 12px;
     }
   `;
@@ -49,10 +48,8 @@ class WeeksumCard extends LitElement {
     if (this._task) {
       const due = new Date(parseInt(this._task.due));
       return html`
-      <div>
         <h2>${this._task.summary}</h2>
         <p class='task-due'>Due On: ${due.toLocaleDateString(region, options)}</p>
-      </div>
       `;
     } else {
       return html`<div>Loading...</div>`;

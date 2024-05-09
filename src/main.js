@@ -6,15 +6,16 @@ import './components/ad-widget.js';
 import './components/login-widget.js';
 import './components/task-manager.js';
 import "./components/bmi-widget.js";
-//Avi's Widget(s);
+//Avi's Widget(s)
 import './components/weeksum-widget.js';
 import './components/weeksum-card.js';
 //Nick's Widget
 import './components/timer-widget.js';
+//Noah's Widget(s)
 import './components/create-task.js';
 import './components/delete-task.js';
 
-// Matthew's Widget
+//Matthew's Widget
 import "./components/gameWidget.js";
 
 /**

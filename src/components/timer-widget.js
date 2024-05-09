@@ -12,6 +12,8 @@ class Timer extends LitElement {
 
   static styles = css`
     :host {
+      margin-block-start: 0.2em;
+      margin-block-end: 0.2em;
       width: 250px;
       height: 250px;
       background-color: rgb(255, 255, 255);;
@@ -21,6 +23,7 @@ class Timer extends LitElement {
       align-items: center;
       justify-content: center;
       text-align: center;
+      border-radius: 20px;
     }
 
   `;
@@ -85,10 +88,11 @@ class Timer extends LitElement {
 
   render() {
     return html`
-      <h3>${this.category}</h3>
+      <h3>Timer</h3>
       ${this._message ? html`<p>${this._message}</p>` : html`<p>Time Remaining: ${this.currtime(this.currTime)}</p>`}
     
       <button @click="${this.toggle}">${this.status ? 'Pause || Resume Timer' : 'Start Timer'}</button>
+      <break>
       <button @click="${this.reset}">Reset Timer</button>
       <button @click="${this.length}""${this.status}">Set Timer</button>
     `;

@@ -23,11 +23,14 @@ class gameWidget extends LitElement {
   static styles = css`
     :host {
         display: block;
+        margin-block-start: 0.2em;
+        margin-block-end: 0.2em;
         width: 250px;
         height: 350px;
         background-color: #535C5F;
         border: 1px solid black;
         color: white; 
+        border-radius: 20px;
     }
 
     :host input {

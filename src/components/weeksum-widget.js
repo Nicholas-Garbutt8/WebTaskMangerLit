@@ -12,11 +12,14 @@ class WeekSummary extends LitElement {
   static styles = css`
     :host {
         display: block;
+        margin-block-start: 0.2em;
+        margin-block-end: 0.2em;
         width: 250px;
         height: auto;
         background-color: rgb(0, 225, 223);
         border: 1px solid black;
         color: black;
+        border-radius: 20px;
     }
     p {
       font-size: 12px;
