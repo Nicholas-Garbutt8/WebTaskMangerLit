@@ -49,6 +49,11 @@ class TaskCard extends LitElement {
       color: white;
     }
 
+    p > #text {
+      display:flex;
+      flex-wrap:wrap;
+    }
+
     
   `;
 
@@ -79,10 +84,18 @@ class TaskCard extends LitElement {
       return html`
       <div class ='main-container'>
         <h2>${this._task.summary}</h2>
-        <p class='task-timestamp'>${ts.toDateString()}</p>
-        <p class='task-due'>${due.toDateString()}</p>
-        <p class='task-content'>${this._task.text}</p>
-        <p class='task-priority'>${this._task.priority}</p>
+        <div class='field-wrapper'>
+          <p class='task-timestamp'>${ts.toDateString()}</p>
+        </div>
+        <div class='field-wrapper'>
+          <p class='task-due'>${due.toDateString()}</p>
+        </div>
+        <div class='field-wrapper'>
+          <p class='task-content'>${this._task.text}</p>
+        </div>
+        <div class='field-wrapper'>
+          <p class='task-priority'>${this._task.priority}</p>
+        </div>
         <delete-task id=${this.id}></delete-task>
         <edit-task id=${this.id}></edit-task>
       </div>

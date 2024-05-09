@@ -48,6 +48,11 @@ class CreateTask extends LitElement {
             box-shadow: 0px 0px 10px 1px white;
             background-color: rgb(12, 22, 83);
         }
+
+        #create-task-dialog {
+            border-radius:20px;
+        }
+
     `;
 
     connectedCallBack() {
