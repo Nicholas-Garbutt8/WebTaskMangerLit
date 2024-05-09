@@ -18,6 +18,10 @@ class WidgetContainer extends LitElement {
       display: flex;
       flex-direction: column;
     }
+
+    h2{
+      color: rgba(201, 206, 243, 1);
+    }
   `;
 
   constructor() {

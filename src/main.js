@@ -11,7 +11,7 @@ import './components/weeksum-widget.js';
 import './components/weeksum-card.js';
 //Nick's Widget
 import './components/timer-widget.js';
-//Noah's Widget(s)
+//Noah's Features
 import './components/create-task.js';
 import './components/delete-task.js';
 
@@ -69,6 +69,7 @@ class Comp2110TaskManager extends LitElement {
       margin-top: 10em;
       display: flex;
       justify-content: space-around;
+      flex-wrap: wrap;
     }
 
     .app-footer {
@@ -86,6 +87,7 @@ class Comp2110TaskManager extends LitElement {
     }
 
     h1{
+      font-size:1.8em;
       color: rgba(201, 206, 243, 1);
     }
 
