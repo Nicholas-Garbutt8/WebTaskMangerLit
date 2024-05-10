@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import {TaskModel} from '../models.js';
 
-class WeeksumCard extends LitElement {
+class UpcomingCard extends LitElement {
   static properties = {
     id: 0,
     _task: {state: true},
@@ -13,13 +13,14 @@ class WeeksumCard extends LitElement {
         width: 250px;
     }
     h2 {
-      background-color: rgba(33,60,200,1);
+      background-color: rgba(100,60,200,1);
       font-size: small;
       font-variant: small-caps;
       color: white;
     }
     p {
       font-size: 12px;
+      color: white;
     }
   `;
 
@@ -56,4 +57,4 @@ class WeeksumCard extends LitElement {
     }
   }
 }
-customElements.define('weeksum-card', WeeksumCard);
+customElements.define('upcoming-card', UpcomingCard);

@@ -21,6 +21,7 @@ Until now I have been trying to make a working widget in my own separate copy so
 - Tweaked some of the CSS temporarily before we can create a universal style guide for the entire webpage
 
 - Made the widget boxes curved on the corners to fit the task cards
+- Further CSS changes (specifically colour palette)
 
 ## Matthew
 word

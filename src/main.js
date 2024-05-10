@@ -7,14 +7,13 @@ import './components/login-widget.js';
 import './components/task-manager.js';
 import "./components/bmi-widget.js";
 //Avi's Widget(s)
-import './components/weeksum-widget.js';
-import './components/weeksum-card.js';
+import './components/upcoming-widget.js';
+import './components/upcoming-card.js';
 //Nick's Widget
 import './components/timer-widget.js';
 //Noah's Features
 import './components/create-task.js';
 import './components/delete-task.js';
-
 //Matthew's Widget
 import "./components/gameWidget.js";
 
@@ -118,7 +117,7 @@ class Comp2110TaskManager extends LitElement {
         <task-manager></task-manager>     
         <widget-container header="Widgets">
           <ad-widget></ad-widget>
-          <weeksum-widget category='ToDo'></weeksum-widget>
+          <upcoming-widget category='ToDo'></upcoming-widget>
           <timer-widget></timer-widget>
           <game-widget></game-widget>
         </widget-container>

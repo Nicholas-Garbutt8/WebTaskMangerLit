@@ -1,8 +1,8 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import {TaskModel} from '../models.js';
-import './weeksum-card.js';
+import './upcoming-card.js';
 
-class WeekSummary extends LitElement {
+class UpcomingWidget extends LitElement {
   static properties = {
     date: {attribute: false},
     category: {},
@@ -16,15 +16,18 @@ class WeekSummary extends LitElement {
         margin-block-end: 0.2em;
         width: 250px;
         height: auto;
-        background-color: rgb(0, 225, 223);
-        border: 1px solid black;
+        background-color: rgba(24,20,89,1);
+        border: 2px solid white;
         color: black;
         border-radius: 20px;
     }
     p {
       font-size: 12px;
       font-weight: bold;
-      color: darkblue;
+      color: white;
+    }
+    h3 {
+      color: white;
     }
   `;
 
@@ -56,15 +59,15 @@ class WeekSummary extends LitElement {
         <h3>${this.category}</h3> <p>${this._message}</p>`;
     } else {
       return html`
-        <h3>Due this Week</h3>
+        <h3>Upcoming Tasks</h3>
         <p>Today is: ${this.date.toLocaleDateString(region, options)}</p>
         
         ${this._tasks.map((task) => {
-                  return html`<weeksum-card id=${task.id}></weeksum-card>`;
+                  return html`<upcoming-card id=${task.id}></upcoming-card>`;
                 })}
         `;
     }
   }
 }
 
-customElements.define('weeksum-widget', WeekSummary);
+customElements.define('upcoming-widget', UpcomingWidget);
