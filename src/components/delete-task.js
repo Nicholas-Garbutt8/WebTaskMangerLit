@@ -25,6 +25,8 @@ class DeleteTask extends LitElement{
         border-radius: 15px;
         padding:0.5em;
         transition:150ms;
+        height:2.5em;
+        width:5em;
     }
 
     #delete-button:hover {

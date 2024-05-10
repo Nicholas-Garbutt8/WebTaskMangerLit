@@ -37,6 +37,8 @@ class EditTask extends LitElement {
       border-radius: 15px;
       padding:0.5em;
       transition:150ms;
+      height:2.5em;
+      width:3em;
     }
 
     #edit-button:hover {

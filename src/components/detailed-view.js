@@ -23,6 +23,7 @@ class DetailedView extends LitElement {
         padding:0.5em;
         transition:150ms;
         width:10em;
+        height:2.5em;
     }
 
     #main-button:hover {
