@@ -35,6 +35,45 @@ class DetailedView extends LitElement {
         height:1em;
         width:1em;
     }
+
+    p{
+        color:white;
+    }
+
+    #detailed-view-dialog {
+        background-color: rgb(26, 43, 100);
+        border-radius:20px;
+        border: none;
+    }
+
+    #summary{
+        font-size:1.5em;
+        font-weight:bold;
+    }
+    
+    .content-container{
+        padding:1em;
+        border-radius:20px;
+        background-color: rgb(12, 22, 83);
+        margin-bottom:1em;
+    }
+
+    #exit-button{
+        padding:0;
+        margin:0;
+        height:2.5em;
+        width:6em;
+        border:none;
+        border-radius:15px;
+        color:white;
+        background-color: rgb(12, 22, 83);
+        transition:150ms;
+    }
+
+    #exit-button:hover{
+        background-color: rgb(26, 43, 150);
+    }
+
     `;
 
     connectedCallback() {
@@ -67,13 +106,15 @@ class DetailedView extends LitElement {
         <button id="main-button" @click="${this._showModal}"><img id="icon" alt="expand icon" src="icons/expand_icon.png"></button>
         <dialog id="detailed-view-dialog">
             <div class="container">
-                <p class='summary'>Summary: ${this._task.summary}</p>
-                <p class='task-timestamp'>Date Made: ${ts.toDateString()}</p>
-                <p class='task-due'>Due Date: ${due.toDateString()}</p>
-                <p class='task-content'>${this._task.text}</p>
-                <p class='task-priority'>${this._task.priority}</p>
-                <button @click="${this._hideModal}">Exit</button>
-                <edit-task id=${this.id}>edit</edit-task>
+                <p id='summary'>${this._task.summary}</p>
+                <div class="content-container">
+                    <p id='task-timestamp'>Date Made: ${ts.toDateString()}</p>
+                    <p id='task-due'>Due Date: ${due.toDateString()}</p>
+                    <p id='task-content'>${this._task.text}</p>
+                    <p id='task-priority'>Priority: ${this._task.priority}</p>
+                    <edit-task id=${this.id}>edit</edit-task>
+                </div>
+                <button id='exit-button' @click="${this._hideModal}">Exit</button>
             </div>
         </dialog>
         `
