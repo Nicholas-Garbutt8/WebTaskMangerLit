@@ -18,8 +18,8 @@ class EditTask extends LitElement {
         flex-direction: column;
     }
     form div {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
+        display: flex;
+        justify-content:space-between;
         padding:0.5em;
     }
     input {
@@ -42,6 +42,21 @@ class EditTask extends LitElement {
     #edit-button:hover {
         background-color: rgb(20, 20, 20);
     }
+
+    #edit-task-dialog {
+      background-color: rgb(50,50,150); 
+      border-radius:20px;
+      border: none;
+    }
+
+  label{
+      color:white;
+      padding-right:2em;
+  }
+
+  input,textarea,select{
+      width:200px; 
+  }
 
   `;
 
