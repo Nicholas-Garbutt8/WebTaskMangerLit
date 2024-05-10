@@ -140,7 +140,7 @@ class Task {
    * @param {Object} newTask
    */
   updateTask(id, newTask) {
-    console.log('updateTask called');
+    //console.log('updateTask called');
     const existingTask = this.getTask(id);
     const URL = `${BASE_URL}tasks/${id}`;
     const user = getUser();

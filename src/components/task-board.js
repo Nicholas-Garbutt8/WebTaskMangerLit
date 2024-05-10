@@ -30,7 +30,7 @@ class TaskBoard extends LitElement {
       color: rgba(201, 206, 243, 1);
       border-radius:30px;
       padding: 1em;
-      margin: 5ex;
+      margin: 1.5em;
       width: 300px;
       height: min-content;
       transition:150ms;
@@ -77,7 +77,7 @@ class TaskBoard extends LitElement {
   }
 
   render() {
-    console.log('task-board render called')
+    //console.log('task-board render called')
     if (this._message) {
       return html`<h3>${this.category}</h3> <p>${this._message}</p>`;
     } else if (this._tasks) {
