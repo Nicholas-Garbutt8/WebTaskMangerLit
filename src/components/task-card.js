@@ -38,8 +38,8 @@ class TaskCard extends LitElement {
     :host input {
         width: 5em;
     }
-    h2 {
-      font-size: large;
+    h2{
+      word-wrap: break-word;
     }
     .main-container{
       padding:1em;
@@ -47,14 +47,9 @@ class TaskCard extends LitElement {
 
     p {
       color: white;
+      word-wrap: break-word;
     }
 
-    p > #text {
-      display:flex;
-      flex-wrap:wrap;
-    }
-
-    
   `;
 
   connectedCallback() {
@@ -78,9 +73,15 @@ class TaskCard extends LitElement {
   //word followed by ... to indicate more content
 
   shortenText(){
+    var cutText;
+    var cutSummary;
     if(this._task.text.length>30){
-
+      cutText = this._task.text.substring(0,31) + '...';
     }
+    if(this._task.summary.length>20){
+      cutSummary = this._task.summary.substring(0,21) + '...';
+    }
+    return {cutText,cutSummary};
   }
 
   //if task card text is too long, hide the rest after 30 characters with an added ...
@@ -96,26 +97,33 @@ class TaskCard extends LitElement {
       //if shortenText has done something and returned true
       //return html that includes the detailed view button element
       //else do not.
-      this.shortenText();
-      return html`
-      <div class ='main-container'>
-        <h2>${this._task.summary}</h2>
-        <div class='field-wrapper'>
-          <p class='task-timestamp'>Date Made: ${ts.toDateString()}</p>
+      
+      if(this.shortenText()){
+        return html`
+        <div class ='main-container'>
+            <h2>${this.shortenText().cutSummary}</h2>
+            <p class='task-timestamp'>Date Made: ${ts.toDateString()}</p>
+            <p class='task-due'>Due Date: ${due.toDateString()}</p>
+            <p class='task-content'>${this.shortenText().cutText}</p>
+            <p class='task-priority'>Priority: ${this._task.priority}</p>
+          <delete-task id=${this.id}></delete-task>
+          <edit-task id=${this.id}></edit-task>
         </div>
-        <div class='field-wrapper'>
-          <p class='task-due'>Due Date: ${due.toDateString()}</p>
+        `;
+      }else{
+        return html`
+        <div class ='main-container'>
+            <h2>${this._task.summary}</h2>
+            <p class='task-timestamp'>Date Made: ${ts.toDateString()}</p>
+            <p class='task-due'>Due Date: ${due.toDateString()}</p>
+            <p class='task-content'>${this._task.text}</p>
+            <p class='task-priority'>Priority: ${this._task.priority}</p>
+          <delete-task id=${this.id}></delete-task>
+          <edit-task id=${this.id}></edit-task>
         </div>
-        <div class='field-wrapper'>
-          <p class='task-content'>${this._task.text}</p>
-        </div>
-        <div class='field-wrapper'>
-          <p class='task-priority'>Priority: ${this._task.priority}</p>
-        </div>
-        <delete-task id=${this.id}></delete-task>
-        <edit-task id=${this.id}></edit-task>
-      </div>
-      `;
+        `;
+      }
+
     } else {
       return html`<div>Loading...</div>`;
     }
