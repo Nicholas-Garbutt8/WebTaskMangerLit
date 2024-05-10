@@ -10,8 +10,9 @@ import { TaskModel } from '../models.js';
 class DetailedView extends LitElement {
 
     static properties = {
-        id: 0
-    }
+        id: 0,
+        _task: {state:true},
+    };
 
     static styles = css`
 
@@ -36,13 +37,45 @@ class DetailedView extends LitElement {
     }
     `;
 
-    connectedCallBack() {
-        super.connectedCallBack();
+    connectedCallback() {
+        super.connectedCallback();
+        this._task = TaskModel.getTask(this.id);
+    }
+
+    /**
+     * click handler for the button to show the editor dialog
+     */
+    _showModal() {
+        const dialog = this.renderRoot.querySelector('#detailed-view-dialog');
+        dialog.showModal();
+    }
+
+    /**
+     * click handler to close the editor dialog
+     * @param {Object} event - the click event
+     */
+    _hideModal(event) {
+        event.preventDefault();
+        const dialog = this.renderRoot.querySelector('#detailed-view-dialog');
+        dialog.close();
     }
 
     render() {
+        const ts = new Date(parseInt(this._task.timestamp));
+        const due = new Date(parseInt(this._task.due));
         return html`
         <button id="main-button" @click="${this._showModal}"><img id="icon" alt="expand icon" src="icons/expand_icon.png"></button>
+        <dialog id="detailed-view-dialog">
+            <div class="container">
+                <p class='summary'>Summary: ${this._task.summary}</p>
+                <p class='task-timestamp'>Date Made: ${ts.toDateString()}</p>
+                <p class='task-due'>Due Date: ${due.toDateString()}</p>
+                <p class='task-content'>${this._task.text}</p>
+                <p class='task-priority'>${this._task.priority}</p>
+                <button @click="${this._hideModal}">Exit</button>
+                <edit-task id=${this.id}>edit</edit-task>
+            </div>
+        </dialog>
         `
     }
 

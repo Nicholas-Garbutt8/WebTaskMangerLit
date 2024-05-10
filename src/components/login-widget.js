@@ -26,7 +26,7 @@ class LoginWidget extends LitElement {
 
     #logout-button, #login-button{
       color:white;
-      background-color:black;
+      background-color: rgba(6, 7, 15, 255);
       border:none;
       border-radius: 15px;
       padding:0.5em;
@@ -34,7 +34,7 @@ class LoginWidget extends LitElement {
     }
 
     #logout-button:hover, #login-button:hover {
-        background-color: rgb(20, 20, 20);
+      background-color: rgba(54, 55, 100, 255);
     }
     
     `;

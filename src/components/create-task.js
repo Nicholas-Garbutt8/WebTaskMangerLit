@@ -49,7 +49,7 @@ class CreateTask extends LitElement {
         }
 
         #create-task-dialog {
-            background-color: rgb(50,50,150); 
+            background-color: rgb(26, 43, 150);
             border-radius:20px;
             border: none;
         }

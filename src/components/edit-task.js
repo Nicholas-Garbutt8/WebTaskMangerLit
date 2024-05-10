@@ -14,16 +14,16 @@ class EditTask extends LitElement {
 
   static styles = css`
     form {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
     }
     form div {
-        display: flex;
-        justify-content:space-between;
-        padding:0.5em;
+      display: flex;
+      justify-content:space-between;
+      padding:0.5em;
     }
     input {
-        width: 100%;
+      width: 100%;
     }
     #edit-task-dialog{
       border:none;
@@ -46,7 +46,7 @@ class EditTask extends LitElement {
     }
 
     #edit-task-dialog {
-      background-color: rgb(50,50,150); 
+      background-color: rgb(26, 43, 150);
       border-radius:20px;
       border: none;
     }
