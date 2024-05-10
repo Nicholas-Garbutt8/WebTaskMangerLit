@@ -77,10 +77,22 @@ class TaskCard extends LitElement {
   //will have their text and summary cut from the nearest
   //word followed by ... to indicate more content
 
+  shortenText(){
+    if(this._task.text.length>30){
+
+    }
+  }
+
+  //if task card text is too long, hide the rest after 30 characters with an added ...
+  //and a new button to expand the view of the task.
+  //possible have a variable that is the new element and if there is no shortening then
+  //the variable is undefined and wont appear in the html return.
+
   render() {
     if (this._task) {
       const ts = new Date(parseInt(this._task.timestamp));
       const due = new Date(parseInt(this._task.due));
+      this.shortenText();
       return html`
       <div class ='main-container'>
         <h2>${this._task.summary}</h2>
