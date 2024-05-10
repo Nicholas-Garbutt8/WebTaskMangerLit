@@ -22,7 +22,7 @@ class TaskCard extends LitElement {
       width: 100%;
       background-color:rgb(6, 12, 52);
       color: rgba(201, 206, 243, 1);
-      margin-bottom:1em;
+      margin-top:1em;
     }
 
     .main-container{

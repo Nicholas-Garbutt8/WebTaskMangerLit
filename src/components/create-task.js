@@ -24,7 +24,6 @@ class CreateTask extends LitElement {
         }
 
         :host{
-            padding-bottom:1em;
             width:100%;
         }
 

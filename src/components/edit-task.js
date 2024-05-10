@@ -32,7 +32,7 @@ class EditTask extends LitElement {
 
     #edit-button{
       color:white;
-      background-color:black;
+      background-color: rgb(26, 43, 100);
       border:none;
       border-radius: 15px;
       padding:0.5em;
@@ -40,7 +40,7 @@ class EditTask extends LitElement {
     }
 
     #edit-button:hover {
-        background-color: rgb(20, 20, 20);
+      background-color: rgb(26, 43, 150);
     }
 
     #edit-task-dialog {
