@@ -92,6 +92,10 @@ class TaskCard extends LitElement {
     if (this._task) {
       const ts = new Date(parseInt(this._task.timestamp));
       const due = new Date(parseInt(this._task.due));
+
+      //if shortenText has done something and returned true
+      //return html that includes the detailed view button element
+      //else do not.
       this.shortenText();
       return html`
       <div class ='main-container'>

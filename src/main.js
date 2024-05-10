@@ -14,6 +14,8 @@ import './components/timer-widget.js';
 //Noah's Features
 import './components/create-task.js';
 import './components/delete-task.js';
+import './components/detailed-view.js';
+
 //Matthew's Widget
 import "./components/gameWidget.js";
 
