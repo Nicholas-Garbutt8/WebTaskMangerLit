@@ -24,6 +24,8 @@ class Timer extends LitElement {
       justify-content: center;
       text-align: center;
       border-radius: 20px;
+      background: linear-gradient(90deg, rgba(24,20,89,1) 0%, rgba(33,60,200,1) 31%, rgba(122,110,232,1) 100%);
+      color: white;
     }
 
   `;
