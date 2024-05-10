@@ -50,6 +50,12 @@ class TaskCard extends LitElement {
       word-wrap: break-word;
     }
 
+    .button-wrapper-full{
+      display:flex;
+      justify-content: space-around;
+    }
+
+
   `;
 
   connectedCallback() {
@@ -102,7 +108,6 @@ class TaskCard extends LitElement {
       //else do not.
       
       if(this.shortenText().shortened){
-        console.log('shortened called')
         return html`
         <div class ='main-container'>
             <h2>${this.shortenText().cutSummary}</h2>
@@ -110,13 +115,14 @@ class TaskCard extends LitElement {
             <p class='task-due'>Due Date: ${due.toDateString()}</p>
             <p class='task-content'>${this.shortenText().cutText}</p>
             <p class='task-priority'>Priority: ${this._task.priority}</p>
-            <detailed-view id=${this.id}></detailed-view>
-            <delete-task id=${this.id}></delete-task>
-            <edit-task id=${this.id}></edit-task>
+            <div class='button-wrapper-full'>
+              <delete-task id=${this.id}></delete-task>
+              <edit-task id=${this.id}></edit-task>
+              <detailed-view id=${this.id}></detailed-view>
+            </div>
         </div>
         `;
       }else{
-        console.log('shortened not called')
         return html`
         <div class ='main-container'>
             <h2>${this._task.summary}</h2>
@@ -124,8 +130,10 @@ class TaskCard extends LitElement {
             <p class='task-due'>Due Date: ${due.toDateString()}</p>
             <p class='task-content'>${this._task.text}</p>
             <p class='task-priority'>Priority: ${this._task.priority}</p>
-            <delete-task id=${this.id}></delete-task>
-            <edit-task id=${this.id}></edit-task>
+            <div class='button-wrapper'>
+              <delete-task id=${this.id}></delete-task>
+              <edit-task id=${this.id}></edit-task>
+            </div>
         </div>
         `;
       }

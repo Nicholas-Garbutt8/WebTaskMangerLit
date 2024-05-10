@@ -14,36 +14,24 @@ class DetailedView extends LitElement {
     }
 
     static styles = css`
-    :host {
-        display:flex;
-        justify-content:center;
-        margin-bottom:1em;
-        width:100%;
-    }
 
     #main-button{
-        padding:0;
-        margin:0;
-        width:3em;
-        display:flex;
-        border:none;
-        height:1.3em;
-        border-radius:20px;
-        color: white;
+        color:white;
         background-color:black;
-        justify-content:center;
-        align-items:center;
-        font-size:1.2em;
-        transition:100ms;
+        border:none;
+        border-radius: 15px;
+        padding:0.5em;
+        transition:150ms;
+        width:10em;
     }
 
-    #main-button:hover{
+    #main-button:hover {
         background-color: rgb(20, 20, 20);
     }
     
     #icon{
-        height:0.7em;
-        width:0.7em;
+        height:1em;
+        width:1em;
     }
     `;
 
