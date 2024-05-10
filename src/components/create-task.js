@@ -74,7 +74,7 @@ class CreateTask extends LitElement {
         console.log('create button clicked!')
         const formData = new FormData(event.target);
         const due = new Date(formData.get('due'));
-        const newTask = {
+        var newTask = {
             category: formData.get('category'),
             summary: formData.get('summary'),
             text: formData.get('text'),

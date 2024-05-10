@@ -73,15 +73,18 @@ class TaskCard extends LitElement {
   //word followed by ... to indicate more content
 
   shortenText(){
+    var shortened = false;
     var cutText;
     var cutSummary;
     if(this._task.text.length>30){
       cutText = this._task.text.substring(0,31) + '...';
+      shortened = true;
     }
     if(this._task.summary.length>20){
       cutSummary = this._task.summary.substring(0,21) + '...';
+      shortened = true;
     }
-    return {cutText,cutSummary};
+    return {cutText,cutSummary,shortened};
   }
 
   //if task card text is too long, hide the rest after 30 characters with an added ...
@@ -98,7 +101,8 @@ class TaskCard extends LitElement {
       //return html that includes the detailed view button element
       //else do not.
       
-      if(this.shortenText()){
+      if(this.shortenText().shortened){
+        console.log('shortened called')
         return html`
         <div class ='main-container'>
             <h2>${this.shortenText().cutSummary}</h2>
@@ -106,11 +110,13 @@ class TaskCard extends LitElement {
             <p class='task-due'>Due Date: ${due.toDateString()}</p>
             <p class='task-content'>${this.shortenText().cutText}</p>
             <p class='task-priority'>Priority: ${this._task.priority}</p>
-          <delete-task id=${this.id}></delete-task>
-          <edit-task id=${this.id}></edit-task>
+            <detailed-view id=${this.id}></detailed-view>
+            <delete-task id=${this.id}></delete-task>
+            <edit-task id=${this.id}></edit-task>
         </div>
         `;
       }else{
+        console.log('shortened not called')
         return html`
         <div class ='main-container'>
             <h2>${this._task.summary}</h2>
@@ -118,8 +124,8 @@ class TaskCard extends LitElement {
             <p class='task-due'>Due Date: ${due.toDateString()}</p>
             <p class='task-content'>${this._task.text}</p>
             <p class='task-priority'>Priority: ${this._task.priority}</p>
-          <delete-task id=${this.id}></delete-task>
-          <edit-task id=${this.id}></edit-task>
+            <delete-task id=${this.id}></delete-task>
+            <edit-task id=${this.id}></edit-task>
         </div>
         `;
       }
