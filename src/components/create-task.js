@@ -49,7 +49,7 @@ class CreateTask extends LitElement {
         }
 
         #create-task-dialog {
-            background-color: rgb(26, 43, 150);
+            background-color:rgb(6, 12, 52);
             border-radius:20px;
             border: none;
         }
@@ -61,6 +61,21 @@ class CreateTask extends LitElement {
 
         input,textarea,select{
             width:200px; 
+        }
+
+        .button{
+            color:white;
+            background-color: rgb(26, 43, 100);
+            border:none;
+            border-radius: 15px;
+            padding:0.5em;
+            transition:150ms;
+            height:2.5em;
+            width:5em;
+        }
+
+        .button:hover{
+        background-color: rgb(26, 43, 150);
         }
 
     `;
@@ -131,8 +146,8 @@ class CreateTask extends LitElement {
                     <input name="due" type="datetime-local" value=${due}>
                 </div>
                 <div class="form-row">
-                    <button @click="${this._hideModal}">Cancel</button>
-                    <input value='Create' type=submit>
+                    <button class='button' @click="${this._hideModal}">Cancel</button>
+                    <input class='button' value='Create' type=submit>
                 </div>
             </form>
         </dialog>

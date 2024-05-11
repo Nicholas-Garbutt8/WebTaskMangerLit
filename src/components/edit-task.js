@@ -61,7 +61,7 @@ class EditTask extends LitElement {
     }
 
     #edit-task-dialog {
-      background-color: rgb(26, 43, 150);
+      background-color:rgb(6, 12, 70);
       border-radius:20px;
       border: none;
     }
