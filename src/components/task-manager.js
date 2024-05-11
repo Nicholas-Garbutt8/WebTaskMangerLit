@@ -26,7 +26,7 @@ class TaskManager extends LitElement {
 
     @media screen and (max-width:866px){
       .task-manager{
-        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
       }
     }
   `;

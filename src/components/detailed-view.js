@@ -38,9 +38,9 @@ class DetailedView extends LitElement {
 
     p{
         text-align:left;
-        width:20em;
         color:white;
         word-wrap: break-word;
+        max-width:20em;
     }
 
     container{
