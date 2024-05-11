@@ -23,7 +23,7 @@ class DetailedView extends LitElement {
         border-radius: 15px;
         padding:0.5em;
         transition:150ms;
-        width:10em;
+        width:6.5em;
         height:2.5em;
     }
 
