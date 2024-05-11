@@ -97,6 +97,13 @@ class EditTask extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this._task = TaskModel.getTask(this.id);
+    window.addEventListener('tasks', () => {
+      this._loadData();
+    });
+  }
+
+  _loadData() {
+    this._task = TaskModel.getTask(this.id);
   }
 
   /**

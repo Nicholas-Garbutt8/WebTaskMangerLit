@@ -94,7 +94,7 @@ class DetailedView extends LitElement {
         this._task = TaskModel.getTask(this.id);
         window.addEventListener('tasks', () => {
             this._loadData();
-          });
+        });
     }
 
     _loadData() {
