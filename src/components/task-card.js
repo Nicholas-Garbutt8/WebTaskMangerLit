@@ -85,10 +85,14 @@ class TaskCard extends LitElement {
     if(this._task.text.length>30){
       cutText = this._task.text.substring(0,31) + '...';
       shortened = true;
+    } else {
+      cutText = this._task.text;
     }
     if(this._task.summary.length>20){
       cutSummary = this._task.summary.substring(0,21) + '...';
       shortened = true;
+    } else {
+      cutSummary = this._task.summary;
     }
     return {cutText,cutSummary,shortened};
   }
