@@ -45,6 +45,21 @@ class EditTask extends LitElement {
       background-color: rgb(26, 43, 150);
     }
 
+    .button{
+      color:white;
+      background-color: rgb(26, 43, 100);
+      border:none;
+      border-radius: 15px;
+      padding:0.5em;
+      transition:150ms;
+      height:2.5em;
+      width:5em;
+    }
+
+    .button:hover{
+      background-color: rgb(26, 43, 150);
+    }
+
     #edit-task-dialog {
       background-color: rgb(26, 43, 150);
       border-radius:20px;
@@ -126,25 +141,23 @@ class EditTask extends LitElement {
                 </div>
                 <div class="form-row">
                     <label for="summary">Summary</label>
-                    <input name="summary" value=${this._task.summary}>
+                    <input name="summary" id='summary' value=${this._task.summary}>
                 </div>
                 <div class="form-row">
                     <label for="text">Text</label>
-                    <textarea name="text">${this._task.text}</textarea> 
+                    <textarea id='main-text' name="text">${this._task.text}</textarea> 
                 </div>
                 <div class="form-row">
                     <label for="priority">Priority</label>
-                    <input name="priority" 
-                           type="number" 
-                           value=${this._task.priority}> 
+                    <input name="priority" id='priority' type="number" value=${this._task.priority}> 
                 </div>
                 <div class="form-row">
                     <label for="due">Due</label>
-                    <input name="due" type="datetime-local" value=${due}>
+                    <input id='datetime-input' name="due" type="datetime-local" value=${due}>
                 </div>
                 <div class="form-row">
-                    <button @click="${this._hideModal}">Cancel</button>
-                    <input value='Update' type=submit>
+                    <button class='button' @click="${this._hideModal}">Cancel</button>
+                    <input class='button' value='Update' type=submit>
                 </div>
             </form>
         </dialog>`;
