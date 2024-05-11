@@ -12,8 +12,14 @@ class CreateTask extends LitElement {
     static styles = css`
         form {
             display: flex;
+            flex-wrap:wrap;
             flex-direction: column;
         }
+
+        :host{
+            width:100%;
+        }
+
         form div {
             display: flex;
             justify-content:space-between;
@@ -21,10 +27,6 @@ class CreateTask extends LitElement {
         }
         input {
             width: 100%;
-        }
-
-        :host{
-            width:100%;
         }
 
         #main-button{
@@ -84,6 +86,10 @@ class CreateTask extends LitElement {
         background-color: rgb(26, 43, 150);
         }
 
+        h2{
+            color:white;
+        }
+
     `;
 
     connectedCallBack() {
@@ -124,6 +130,7 @@ class CreateTask extends LitElement {
         return html`
         <button id="main-button" @click=${this._showModal}>+</button>
         <dialog id="create-task-dialog">
+            <h2>Create a new task.</h2>
             <form @submit=${this._submit}>
                 <div class="form-row">
                     <label for="category">Category</label>  

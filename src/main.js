@@ -37,8 +37,6 @@ class Comp2110TaskManager extends LitElement {
       text-align: center;
     }
 
-
-
     header > * {
       margin-inline: 1em;
       margin-block: 0.5em;

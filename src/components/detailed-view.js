@@ -16,6 +16,11 @@ class DetailedView extends LitElement {
 
     static styles = css`
 
+    :host{
+        display:flex;
+        flex-wrap:wrap;
+    }
+
     #main-button{
         color:white;
         background-color: rgb(26, 43, 100);

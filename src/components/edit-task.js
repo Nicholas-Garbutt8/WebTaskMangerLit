@@ -81,6 +81,17 @@ class EditTask extends LitElement {
     height:3em;
   }
 
+  h2{
+    max-width:15em;
+    color:white;
+    word-break:break-word;
+  }
+
+  p{
+    font-size:large;
+    margin:0;
+  }
+
   `;
 
   connectedCallback() {
@@ -135,6 +146,7 @@ class EditTask extends LitElement {
     return html`
         <button id="edit-button" @click=${this._showModal}>Edit</button>
         <dialog id="edit-task-dialog">
+            <h2>Editing task: <p>${this._task.summary}</p></h2>
             <form @submit="${this._submit}">
                 <div class="form-row">
                   <label for="category">Category</label>
