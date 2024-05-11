@@ -60,8 +60,14 @@ class CreateTask extends LitElement {
         }
 
         input,textarea,select{
+            padding-inline:1em;
             width:200px; 
-        }
+            background-color: rgb(26, 43, 100);
+            color:white;
+            border:none;
+            border-radius:15px;
+            height:3em;
+          }
 
         .button{
             color:white;
