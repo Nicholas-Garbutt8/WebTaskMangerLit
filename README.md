@@ -35,17 +35,26 @@ word
 - Able to set timer to length
 
 ## Noah
-create-task file:
-- based on edit-task, calls a dialog where the user inputs the fields of the new task they want to create
+create-task.js:
+- based on edit-task, renders a button at the top of task boards that when clicked
+- calls a dialog where the user inputs the fields of the new task they want to create
 - it then sends the form data to a newly created models.js function 'createTask' which accepts the data
 - which then sends a fetch post request to the server with the new task json data in the body
 - it then reloads the page to show the made changes.
 
-delete-task file:
+delete-task.js:
 - simple implementation that provides the user a delete button for each of the task cards which is initialised with
 - the task id of the task that it is created on. This task id is then passed to a new models.js function 'deleteTask'
 - which sends a fetch delete request to the server with the task id.
 - it then reloads the page to show the made changes.
 
+detailed-view.js
+- altered task-card such that when the summary or the text content of the task is too long it will truncate the text
+- and add an ellipsis indicating more content to be read. Additionally task-card in this state will render the new
+- detailed-view component which adds a new button at the bottom of the task card along side existing ones with an expand
+- symbol that allows users to see the full view of the summary and or text content if one or either is too long.
+
 Styling:
-- Implemented style hover effects
+- Implemented style hover effects from style references
+- Styling of logout/login, delete button, buttons create-task, edit-task, detailed-view, and their dialogs inspired established stylings.
+- Implemented Page responsiveness for different viewport widths based on implementation already established from style reference.
