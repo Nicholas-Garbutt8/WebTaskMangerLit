@@ -63,10 +63,21 @@ class Comp2110TaskManager extends LitElement {
     .app-footer {
       font-size: calc(12px + 0.5vmin);
       align-items: center;
+      margin:0;
+      margin-top:2em;
+      padding:2em;
+      color:white;
+      background-color: rgba(17, 16, 32, 0.974);
     }
 
     .app-footer a {
+      color:white;
+      text-decoration:none;
       margin-left: 5px;
+    }
+
+    .app-footer a:hover{
+      color: rgba(201, 206, 243, 1);
     }
 
     h1{
