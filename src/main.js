@@ -43,20 +43,18 @@ class Comp2110TaskManager extends LitElement {
     }
 
     header{
-      position:fixed;
       top:0;
       padding:1.5em;
       background-color: rgba(17, 16, 32, 0.974);
       display:flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      width:100%;
       margin-bottom: 1em;
       color: white;
     }
 
     main {
-      margin-top: 12em;
+      margin-top: 2em;
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
