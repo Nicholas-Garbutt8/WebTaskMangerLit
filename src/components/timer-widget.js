@@ -1,13 +1,10 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-import { TaskModel } from '../models.js';
 import './task-card.js';
 
 class Timer extends LitElement {
   static properties = {
     category: {},
-    _task: { state: true },
-    _tasks: { state: true },
-    _message: { state: true },
+
   };
 
   static styles = css`
@@ -38,22 +35,6 @@ class Timer extends LitElement {
     this.status = false; 
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    this._loadData();
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    clearInterval(this.countSpeed);
-  }
-
-  _loadData() {
-    this._task = TaskModel.getTask(this.id);
-    this._tasks = TaskModel.getTasks(this.category);
-    this.render();
-  }
-
   toggle() {
     if (this.status) {
       clearInterval(this.countSpeed);
@@ -73,8 +54,9 @@ class Timer extends LitElement {
   reset() {
     this.status = false; 
     this.currTime = this.startTime; 
-    this._message = null;
+    this.message = null;
     clearInterval(this.countSpeed);
+    this.requestUpdate('currTime');
   }
 
   length() {
@@ -85,13 +67,15 @@ class Timer extends LitElement {
   }
 
   end() {
-    this._message = "Beep Beep timer done";
-  }
+    this.message = "Beep Beep timer done";
+    let alarm = new Audio('alarm.mp3');
+    alarm.play();
+  } 
 
   render() {
     return html`
       <h3>Timer</h3>
-      ${this._message ? html`<p>${this._message}</p>` : html`<p>Time Remaining: ${this.currtime(this.currTime)}</p>`}
+      ${this.message ? html`<p>${this.message}</p>` : html`<p>Time Remaining: ${this.currtime(this.currTime)}</p>`}
     
       <button @click="${this.toggle}">${this.status ? 'Pause || Resume Timer' : 'Start Timer'}</button>
       <break>
