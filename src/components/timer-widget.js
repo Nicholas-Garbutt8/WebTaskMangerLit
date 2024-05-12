@@ -13,14 +13,13 @@ class Timer extends LitElement {
       margin-block-end: 0.2em;
       width: 250px;
       height: 250px;
-      background-color: rgb(255, 255, 255);;
-      border: 1px solid black;
+      border: 2px solid white;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       border-radius: 20px;
-      background: linear-gradient(90deg, rgba(24,20,89,1) 0%, rgba(33,60,200,1) 31%, rgba(122,110,232,1) 100%);
+      background-color: rgba(24,20,89,1);
       color: white;
       position: relative;
     }

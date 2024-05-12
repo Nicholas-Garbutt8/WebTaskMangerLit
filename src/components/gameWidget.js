@@ -27,8 +27,8 @@ class gameWidget extends LitElement {
         margin-block-end: 0.2em;
         width: 250px;
         height: 350px;
-        background-color: #535C5F;
-        border: 1px solid black;
+        background-color: rgba(24,20,89,1);
+        border: 2px solid white;        
         color: white; 
         border-radius: 20px;
     }
@@ -44,7 +44,7 @@ class gameWidget extends LitElement {
     }
 
     h3 {
-      color: black;
+      color: white;
     }
 
     #SubmitGuess {
