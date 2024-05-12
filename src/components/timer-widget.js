@@ -15,7 +15,6 @@ class Timer extends LitElement {
       height: 250px;
       background-color: rgb(255, 255, 255);;
       border: 1px solid black;
-      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -23,7 +22,13 @@ class Timer extends LitElement {
       border-radius: 20px;
       background: linear-gradient(90deg, rgba(24,20,89,1) 0%, rgba(33,60,200,1) 31%, rgba(122,110,232,1) 100%);
       color: white;
+      position: relative;
     }
+    p{
+      font-size: 24px;
+      text-align: 10px;
+    }    
+
 
   `;
 
@@ -74,17 +79,15 @@ class Timer extends LitElement {
 
   render() {
     return html`
-      <h3>Timer</h3>
+      <h1>Timer</h1>
       ${this.message ? html`<p>${this.message}</p>` : html`<p>Time Remaining: ${this.currtime(this.currTime)}</p>`}
-    
       <button @click="${this.toggle}">${this.status ? 'Pause || Resume Timer' : 'Start Timer'}</button>
       <break>
       <button @click="${this.reset}">Reset Timer</button>
       <button @click="${this.length}""${this.status}">Set Timer</button>
     `;
   }
-
-  
+ 
   currtime(second) {
     let min = Math.floor(second / 60);
     let sec = Math.floor(second % 60);
