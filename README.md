@@ -33,6 +33,11 @@ word
 - Ability to start,pause and resume the timer
 - Able to reset timer back to base state
 - Able to set timer to length
+- Text displayed when the timer is complete
+- Changed the layout of the elements to fill out the widget
+- Added a mp3 sound that is set to play when the timer is complete 
+- Changed the widgets colours to make them all fit the same colour theme
+- Checked code for any parts that are redundant and all parts still work
 
 ## Noah
 create-task.js:
