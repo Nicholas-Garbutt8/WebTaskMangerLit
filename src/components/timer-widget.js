@@ -72,7 +72,7 @@ class Timer extends LitElement {
 
   end() {
     this.message = "Beep Beep timer done";
-    let alarm = new Audio('alarm.mp3');
+    let alarm = new Audio('audio/alarm.mp3');
     alarm.play();
   } 
 
