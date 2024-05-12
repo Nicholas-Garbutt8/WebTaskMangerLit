@@ -21,11 +21,24 @@ Until now I have been trying to make a working widget in my own separate copy so
 - Tweaked some of the CSS temporarily before we can create a universal style guide for the entire webpage
 
 - Made the widget boxes curved on the corners to fit the task cards
+
 - Further CSS changes (specifically colour palette)
 
 ## Matthew
 word
 - Changed styling to match the "style.css" file
+
+- Added file "gameWidget.js"
+
+- Made a "Guess The Number" Game. 
+
+- Code, inspired from the "BMI calculator widget". -- Very similar concepts. 
+
+- Made it so the game can be played continuously without the need of refreshing the page :)
+
+- Tweaked some css to reduce empty space. 
+
+- Tweaked the css of the heading for "Guess The Number" to stand more unique.
 
 ## Nicholas
 - Created a timer widget
