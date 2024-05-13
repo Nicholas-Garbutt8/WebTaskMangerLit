@@ -67,12 +67,15 @@ delete-task.js:
 - it then reloads the page to show the made changes.
 
 detailed-view.js
-- altered task-card such that when the summary or the text content of the task is too long it will truncate the text
+- altered task-card.js such that when the summary or the text content of the task is too long it will truncate the text
 - and add an ellipsis indicating more content to be read. Additionally task-card in this state will render the new
 - detailed-view component which adds a new button at the bottom of the task card along side existing ones with an expand
 - symbol that allows users to see the full view of the summary and or text content if one or either is too long.
+- accomplishes this in a similar fashion to delete-task and create-task: through the use of a pop-up dialog.
+- dialog additionally has its own edit-task component allowing the user to quickly edit the task while in the detailed view
+- dialog without having to exit it first. detailed-view dialog also has an event listener to update changes made if an edit occurs
 
 Styling:
 - Implemented style hover effects from style references
-- Styling of logout/login, delete button, buttons create-task, edit-task, detailed-view, and their dialogs inspired established stylings.
+- Styling of logout/login, delete button, buttons create-task, edit-task, detailed-view, and their dialogs inspired from established stylings.
 - Implemented Page responsiveness for different viewport widths based on implementation already established from style reference.
