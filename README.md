@@ -1,7 +1,6 @@
 # COMP2110 Task Manager 2024
 
-As part of your assignment submission, write notes about your implementation
-in this file.
+This project was made in collaboration with 3 other for unit COMP2110 where we were given a basic webstite with limited functionality and we had to make widgets and improve the look of the web page.
 
 ## Avi
 - For a week or two
